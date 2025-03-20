@@ -3,25 +3,12 @@ import { products } from "@/lib/products"
 import ProductDetails from "@/components/product-details"
 import RelatedProducts from "@/components/related-products"
 import ImageZoom from "@/components/image-zoom"
-import { GetServerSideProps, NextPage } from "next"
 
-// Função para obter os parâmetros e passar como props
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id } = context.params || {}
+// Remova a importação do NextPage
+// import { NextPage } from "next"
 
-  // Verifica se o parâmetro id existe
-  if (!id) {
-    return { notFound: true }
-  }
-
-  return {
-    props: {
-      params: { id: id as string },
-    },
-  }
-}
-
-const ProductPage: NextPage<{ params: { id: string } }> = ({ params }) => {
+// Use a definição de tipo correta para o App Router
+export default function ProductPage({ params }: { params: { id: string } }) {
   const product = products.find((p) => p.id === params.id)
 
   if (!product) {
@@ -62,5 +49,3 @@ const ProductPage: NextPage<{ params: { id: string } }> = ({ params }) => {
     </div>
   )
 }
-
-export default ProductPage
