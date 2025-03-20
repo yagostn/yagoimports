@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { useState, useRef } from "react"
+import Image from "next/image"
 import styles from "./image-zoom.module.css"
 
 interface ImageZoomProps {
@@ -9,13 +10,14 @@ interface ImageZoomProps {
   alt: string
   width?: number
   height?: number
-  zoomLevel?: number
+  className?: string
+  zoomScale?: number
 }
 
-const ImageZoom: React.FC<ImageZoomProps> = ({ src, alt, width = 500, height = 300, zoomLevel = 2 }) => {
+const ImageZoom: React.FC<ImageZoomProps> = ({ src, alt, width, height, className = "", zoomScale = 2 }) => {
   const [isZoomed, setIsZoomed] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const imageRef = useRef<HTMLImageElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   const handleMouseEnter = () => {
     setIsZoomed(true)
@@ -26,37 +28,37 @@ const ImageZoom: React.FC<ImageZoomProps> = ({ src, alt, width = 500, height = 3
   }
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { left, top } = imageRef.current!.getBoundingClientRect()
-    const x = e.clientX - left
-    const y = e.clientY - top
-    setMousePosition({ x, y })
+    if (containerRef.current) {
+      const { left, top } = containerRef.current.getBoundingClientRect()
+      const x = e.clientX - left
+      const y = e.clientY - top
+      setMousePosition({ x, y })
+    }
   }
 
-  const zoomX = isZoomed ? -(mousePosition.x * (zoomLevel - 1)) : 0
-  const zoomY = isZoomed ? -(mousePosition.y * (zoomLevel - 1)) : 0
+  const zoomX = isZoomed ? -(mousePosition.x * (zoomScale - 1)) : 0
+  const zoomY = isZoomed ? -(mousePosition.y * (zoomScale - 1)) : 0
 
   return (
     <div
-      className={styles.imageContainer}
-      style={{ width: `${width}px`, height: `${height}px` }}
+      ref={containerRef}
+      className={`${styles.imageContainer} ${className}`}
+      style={{ width: width ? `${width}px` : "100%", height: height ? `${height}px` : "100%" }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
     >
-      <img
-        ref={imageRef}
-        src={src || "/placeholder.svg"}
-        alt={alt}
-        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-      />
+      <div className="relative w-full h-full">
+        <Image src={src || "/placeholder.svg"} alt={alt} fill style={{ objectFit: "cover" }} />
+      </div>
       {isZoomed && (
         <div
           className={styles.zoomOverlay}
           style={{
-            width: `${width}px`,
-            height: `${height}px`,
+            width: "100%",
+            height: "100%",
             backgroundImage: `url(${src})`,
-            backgroundSize: `${width * zoomLevel}px ${height * zoomLevel}px`,
+            backgroundSize: `${zoomScale * 100}% ${zoomScale * 100}%`,
             backgroundPosition: `${zoomX}px ${zoomY}px`,
           }}
         />

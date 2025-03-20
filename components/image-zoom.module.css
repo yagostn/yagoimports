@@ -1,6 +1,8 @@
 .imageContainer {
     position: relative;
     overflow: hidden;
+    width: 100%;
+    height: 100%;
   }
   
   .zoomOverlay {
@@ -8,6 +10,7 @@
     top: 0;
     left: 0;
     pointer-events: none; /* Permite que eventos do mouse passem através */
+    z-index: 10;
   }
   
   
