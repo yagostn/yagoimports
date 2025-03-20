@@ -14,10 +14,19 @@ export default function SiteHeader() {
   const { cart } = useCart()
   const [cartCount, setCartCount] = useState(0)
   const [isOpen, setIsOpen] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
 
+  // Verificar se o componente está montado no cliente
   useEffect(() => {
-    setCartCount(cart.reduce((acc, item) => acc + item.quantity, 0))
-  }, [cart])
+    setIsMounted(true)
+  }, [])
+
+  // Atualizar o contador do carrinho apenas após a montagem
+  useEffect(() => {
+    if (isMounted) {
+      setCartCount(cart.reduce((acc, item) => acc + item.quantity, 0))
+    }
+  }, [cart, isMounted])
 
   const routes = [
     {
@@ -110,7 +119,8 @@ export default function SiteHeader() {
           <Link href="/carrinho">
             <Button variant="ghost" size="icon" className="relative">
               <ShoppingBag className="h-5 w-5" />
-              {cartCount > 0 && (
+              {/* Só mostrar o contador de itens do carrinho após a montagem do componente */}
+              {isMounted && cartCount > 0 && (
                 <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
                   {cartCount}
                 </span>

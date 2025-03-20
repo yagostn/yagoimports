@@ -4,15 +4,13 @@ import ProductDetails from "@/components/product-details"
 import RelatedProducts from "@/components/related-products"
 import ImageZoom from "@/components/image-zoom"
 
-// Corrigindo a interface para atender à restrição PageProps
 interface ProductPageProps {
   params: {
     id: string
   }
-  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default function ProductPage({ params, searchParams }: ProductPageProps) {
+export default function ProductPage({ params }: ProductPageProps) {
   const product = products.find((p) => p.id === params.id)
 
   if (!product) {
