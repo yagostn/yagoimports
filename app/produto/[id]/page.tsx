@@ -4,11 +4,17 @@ import ProductDetails from "@/components/product-details"
 import RelatedProducts from "@/components/related-products"
 import ImageZoom from "@/components/image-zoom"
 
-// Remova a importação do NextPage
-// import { NextPage } from "next"
+// Remova completamente a importação do NextPage
 
-// Use a definição de tipo correta para o App Router
-export default function ProductPage({ params }: { params: { id: string } }) {
+// Defina os tipos para os parâmetros
+type ProductPageProps = {
+  params: {
+    id: string
+  }
+}
+
+// Use uma função assíncrona para a página
+export default async function ProductPage({ params }: ProductPageProps) {
   const product = products.find((p) => p.id === params.id)
 
   if (!product) {
