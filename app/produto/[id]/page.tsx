@@ -3,9 +3,24 @@ import { products } from "@/lib/products"
 import ProductDetails from "@/components/product-details"
 import RelatedProducts from "@/components/related-products"
 import ImageZoom from "@/components/image-zoom"
-import { NextPage } from "next"
+import { GetServerSideProps, NextPage } from "next"
 
-// Componente atualizado para usar NextPage
+// Função para obter os parâmetros e passar como props
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { id } = context.params || {}
+
+  // Verifica se o parâmetro id existe
+  if (!id) {
+    return { notFound: true }
+  }
+
+  return {
+    props: {
+      params: { id: id as string },
+    },
+  }
+}
+
 const ProductPage: NextPage<{ params: { id: string } }> = ({ params }) => {
   const product = products.find((p) => p.id === params.id)
 
