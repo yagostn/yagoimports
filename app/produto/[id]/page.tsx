@@ -4,13 +4,14 @@ import ProductDetails from "@/components/product-details"
 import RelatedProducts from "@/components/related-products"
 import ImageZoom from "@/components/image-zoom"
 
-interface ProductPageProps {
-  params: {
-    id: string
-  }
-}
+// Remova a interface personalizada ProductPageProps
+// e use a tipagem correta para o Next.js 15
 
-export default function ProductPage({ params }: ProductPageProps) {
+export default function ProductPage({
+  params,
+}: {
+  params: { id: string }
+}) {
   const product = products.find((p) => p.id === params.id)
 
   if (!product) {
@@ -51,4 +52,3 @@ export default function ProductPage({ params }: ProductPageProps) {
     </div>
   )
 }
-
