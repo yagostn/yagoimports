@@ -3,15 +3,10 @@ import { products } from "@/lib/products"
 import ProductDetails from "@/components/product-details"
 import RelatedProducts from "@/components/related-products"
 import ImageZoom from "@/components/image-zoom"
+import { NextPage } from "next"
 
-// Remova a interface personalizada ProductPageProps
-// e use a tipagem correta para o Next.js 15
-
-export default function ProductPage({
-  params,
-}: {
-  params: { id: string }
-}) {
+// Componente atualizado para usar NextPage
+const ProductPage: NextPage<{ params: { id: string } }> = ({ params }) => {
   const product = products.find((p) => p.id === params.id)
 
   if (!product) {
@@ -52,3 +47,5 @@ export default function ProductPage({
     </div>
   )
 }
+
+export default ProductPage
