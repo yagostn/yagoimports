@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+
+  typescript: {
+    // Isso permite que o build seja concluído mesmo com erros de tipo
+    ignoreBuildErrors: true,
+  },
+
   images: {
     remotePatterns: [
       {

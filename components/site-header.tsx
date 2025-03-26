@@ -53,20 +53,20 @@ export default function SiteHeader() {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[240px] sm:w-[300px]">
-              <div className="flex h-16 items-center border-b">
+            <SheetContent side="left" className="w-[300px] sm:w-[340px]">
+              <div className="flex h-24 items-center border-b">
                 <Link href="/" onClick={() => setIsOpen(false)}>
                   {/* Logo no menu mobile */}
                   <Image
-                    src="/images/logo.jpeg"
-                    alt="Styllo Biquinis Logo"
-                    width={120}
-                    height={120}
-                    className="h-10 w-auto object-contain"
+                    src="/images/logocortada.png"
+                    alt="DUNNA Logo"
+                    width={220}
+                    height={60}
+                    className="h-30 w-auto object-contain"
                   />
                 </Link>
               </div>
-              <nav className="flex flex-col gap-4 mt-4">
+              <nav className="flex flex-col gap-4 mt-6 px-4">
                 {routes.map((route) => (
                   <Link
                     key={route.href}
@@ -83,14 +83,14 @@ export default function SiteHeader() {
           <Link href="/" className="flex items-center">
             {/* Logo principal no header */}
             <Image
-              src="/images/logo.jpeg"
-              alt="Styllo Biquinis Logo"
-              width={150}
-              height={50}
-              className="h-12 w-auto object-contain"
+              src="/images/logocortada.png"
+              alt="DUNNA Logo"
+              width={180}
+              height={60}
+              className="h-30 w-auto object-contain"
               priority
             />
-            <span className="ml-2 text-xl font-bold">Styllo Biquinis</span>
+            <span className="ml-2 text-xl font-bold">DUNNA MODA PRAIA</span>
           </Link>
           <nav className="hidden lg:flex items-center gap-6 ml-10">
             {routes.map((route) => (

@@ -1,16 +1,20 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Julius_Sans_One } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import SiteHeader from "@/components/site-header";
 import { CartProvider } from "@/lib/use-cart";
 
-const inter = Inter({ subsets: ["latin"] });
+const juliusSansOne = Julius_Sans_One({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-julius-sans-one", // Opcional: para usar como variável CSS
+});
 
 export const metadata: Metadata = {
-  title: "Styllo Biquinis",
-  description: "Loja de roupas e biquínis com os melhores preços",
+  title: "DUNNA | Moda Praia",
+  description: "Loja de biquínis com os melhores preços",
 };
 
 export default function RootLayout({
@@ -20,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>
+      <body className={juliusSansOne.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -34,7 +38,7 @@ export default function RootLayout({
               <footer className="border-t py-6 md:py-0">
                 <div className="container flex flex-col items-center justify-between gap-4 md:h-16 md:flex-row">
                   <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-                    © {new Date().getFullYear()} Styllo Biquinis. Todos os
+                    © {new Date().getFullYear()} DUNNA MODA PRAIA. Todos os
                     direitos reservados.
                   </p>
                 </div>
