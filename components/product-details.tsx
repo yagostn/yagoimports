@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import type { Product } from "@/lib/types"
 import { Button } from "@/components/ui/button"
@@ -58,7 +58,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
     <div className="flex flex-col gap-6">
       <div className="flex justify-between items-start">
         <div>
-          <h1 className="text-3xl font-bold">{product.name}</h1>
+          <h1 className="text-1.5xl font-bold">{product.name}</h1>
           <p className="text-xl font-bold mt-2">{formatCurrency(product.price)}</p>
         </div>
         {isOutOfStock ? (
@@ -66,14 +66,28 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             ESGOTADO
           </Badge>
         ) : (
-          <Badge variant="outline" className="text-sm px-3 py-1">
+          <Badge variant="outline" className="text-sm px-3 py-1 bg-white text-black border-gray-300">
             {product.stock} {product.stock === 1 ? "item" : "itens"} em estoque
           </Badge>
         )}
       </div>
 
       <div className="space-y-4">
-        <p className="text-muted-foreground">{product.description}</p>
+        <p
+          style={{
+            fontFamily: "Arial, serif",
+            lineHeight: 1.6,
+            fontSize: "1rem",
+            color: "oklch(46.91% 0 14.29)",
+          }}
+        >
+          {product.description.split('\n').map((line, index) => (
+            <React.Fragment key={index}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))}
+        </p>
 
         {isOutOfStock && (
           <div className="flex items-center gap-2 text-destructive bg-destructive/10 p-3 rounded-md">
@@ -96,9 +110,9 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                   <RadioGroupItem value={size} id={`size-${size}`} className="peer sr-only" />
                   <Label
                     htmlFor={`size-${size}`}
-                    className={`flex h-10 w-10 items-center justify-center rounded-md border border-muted bg-background 
-                    peer-data-[state=checked]:bg-primary peer-data-[state=checked]:text-primary-foreground 
-                    hover:bg-muted cursor-pointer ${isOutOfStock ? "opacity-50 cursor-not-allowed" : ""}`}
+                    className={`flex h-10 w-10 items-center justify-center rounded-md border border-gray-300 bg-white 
+                    peer-data-[state=checked]:bg-black peer-data-[state=checked]:text-white 
+                    hover:bg-gray-100 cursor-pointer ${isOutOfStock ? "opacity-50 cursor-not-allowed" : ""}`}
                   >
                     {size}
                   </Label>
@@ -138,7 +152,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         {!isOutOfStock && (
           <div>
             <h3 className="font-medium mb-2">Quantidade</h3>
-            <div className="flex items-center border rounded-md w-32">
+            <div className="flex items-center border rounded-md w-32 bg-white text-black">
               <Button
                 variant="ghost"
                 size="icon"
@@ -160,7 +174,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
               </Button>
             </div>
             {quantity === maxQuantity && (
-              <p className="text-xs text-muted-foreground mt-1">Quantidade máxima disponível</p>
+              <p className="text-xs text-muted-foreground mt-1 font-bold">Quantidade máxima disponível</p>
             )}
           </div>
         )}
@@ -185,4 +199,3 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
     </div>
   )
 }
-

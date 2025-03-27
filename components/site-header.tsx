@@ -39,16 +39,6 @@ export default function SiteHeader() {
       label: "Esgotados",
       active: pathname === "/esgotados",
     },
-    {
-      href: "/sobre",
-      label: "Sobre",
-      active: pathname === "/sobre",
-    },
-    {
-      href: "/contato",
-      label: "Contato",
-      active: pathname === "/contato",
-    },
   ]
 
   return (
