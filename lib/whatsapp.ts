@@ -11,7 +11,7 @@ const COLOR_MAP: { [key: string]: string } = {
   "#89CFF0": "Azul Bebê",
   "#392620": "Marrom café",
   "#FFFF00": "Amarelo",
-  "#c8e5eb": "Azul Cristal",
+  "#C8E5EB": "Azul Cristal",
   "#00FFFF": "Ciano",
   "#808080": "Cinza",
   "#800000": "Marrom",

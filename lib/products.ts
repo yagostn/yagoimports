@@ -71,6 +71,6 @@ export const products: Product[] = [
     sizes: ["M"],
     colors: ["#c8e5eb"],
     isNew: true,
-    stock: 3,
+    stock: 1,
   },
 ];
