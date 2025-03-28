@@ -4,7 +4,7 @@ import { formatCurrency } from "./utils"
 // Substitua pelo seu número de WhatsApp (com código do país)
 const WHATSAPP_NUMBER = "5548991961687"
 
-// Color mapping to convert hex to readable names
+// Color mapping to convert hex to readable name
 const COLOR_MAP: { [key: string]: string } = {
   "#F4C2C2": "Rosa Bebê",
   "#FAF9F6": "Off White",
