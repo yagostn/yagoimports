@@ -15,7 +15,7 @@ const COLOR_MAP: { [key: string]: string } = {
   "#00FFFF": "Ciano",
   "#808080": "Cinza",
   "#800000": "Marrom",
-  "#008000": "Verde Escuro",
+  "#048000": "Verde Escuro",
   "#000080": "Azul Marinho",
   "#800080": "Roxo",
   "#008080": "Verde Azulado"
