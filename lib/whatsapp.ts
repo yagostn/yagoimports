@@ -64,12 +64,12 @@ export function createWhatsAppLink(
     message += `   Quantidade: ${item.quantity}\n`
     if (item.size) message += `   Tamanho: ${item.size}\n`
     if (item.color) message += `   Cor: ${getColorName(item.color)}\n`
-    message += `   Valor: ${formatCurrency(item.price)}\n`
+    message += `   Valor: ${formatCurrency(item.price)}\n\n`
 
   })
 
   // Order Summary
-  message += ' *RESUMO DO PEDIDO:*\n'
+  message += '  •*RESUMO DO PEDIDO:*\n'
   message += `   Quantidade Total de Peças: ${totalQuantity}\n`
   message += `   *Valor Total: ${formatCurrency(subtotal)}*\n\n`
 
