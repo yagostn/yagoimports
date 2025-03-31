@@ -15,7 +15,7 @@ export const products: Product[] = [
   },
   {
     id: "2",
-    name: "Cortininha fio c/argola - Off white",
+    name: "Cortininha fio c/argola - Off White",
     description: "Tecido Beach Gloss com FPS 50\n- Acompanha bojo removível e saquinho\n- P 36/38 M 38/40 G 40/42\n- Alças e Calcinha reguláveis",
     price: 84.99,
     images: ["/images/offwhite.jpg"],
