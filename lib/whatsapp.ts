@@ -13,8 +13,8 @@ const COLOR_MAP: { [key: string]: string } = {
   "#FFFF00": "Amarelo",
   "#C8E5EB": "Azul Cristal",
   "#00FFFF": "Ciano",
-  "#808080": "Cinza",
-  "#800000": "Marrom",
+  "#A020F0": "Roxo",
+  "#514240": "café",
   "#048000": "Verde Escuro",
   "#000080": "Azul Marinho",
   "#804580": "Roxo",
@@ -45,8 +45,6 @@ export function createWhatsAppLink(
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
   })
 
   // Create WhatsApp message
@@ -60,18 +58,18 @@ export function createWhatsAppLink(
   message += `*Data do Pedido:* ${formattedDate}\n\n`
 
   // Cart Items
-  message += `* Itens do Pedido:*\n`
+  message += `*Itens do Pedido:*\n`
   cart.forEach((item, index) => {
     message += `*${index + 1}. ${item.name}*\n`
     message += `   Quantidade: ${item.quantity}\n`
     if (item.size) message += `   Tamanho: ${item.size}\n`
     if (item.color) message += `   Cor: ${getColorName(item.color)}\n`
-    message += `   Preço unitário: ${formatCurrency(item.price)}\n`
-    message += `   Subtotal do Item: ${formatCurrency(item.price * item.quantity)}\n\n`
+    message += `   Valor: ${formatCurrency(item.price)}\n`
+
   })
 
   // Order Summary
-  message += `* Resumo do Pedido:*\n`
+  message += ' *RESUMO DO PEDIDO:*\n'
   message += `   Quantidade Total de Peças: ${totalQuantity}\n`
   message += `   *Valor Total: ${formatCurrency(subtotal)}*\n\n`
 
@@ -99,7 +97,7 @@ export function createWhatsAppLink(
 
   // Closing message
   message += `*Obrigado por escolher a Dunna Moda Praia!* \n`
-  message += `Confirma o pedido? Estamos prontos para fazer seu verão ainda mais especial! `
+  message += `Confirma o pedido? Estamos prontos para fazer seu verão ainda mais especial.`
 
   // Encode message for URL
   const encodedMessage = encodeURIComponent(message)
