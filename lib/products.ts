@@ -51,10 +51,10 @@ export const products: Product[] = [
   },
   {
     id: "5",
-    name: "Básico fio azul - Cristal",
+    name: "Biquíni Básico - Azul Cristal",
     description: "Tecido Beach Gloss com FPS 50\n- Acompanha bojo removível e saquinho\n- P 36/38 M 38/40 G 40/42\n- Alças e Calcinha reguláveis",
     price: 79.99,
-    images: ["/images/azulcristal.webp"],
+    images: ["/images/azulcristal2.webp"],
     category: "Biquinis",
     sizes: ["P"],
     colors: ["#C8E5EB"],
