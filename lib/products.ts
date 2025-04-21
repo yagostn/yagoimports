@@ -32,10 +32,10 @@ export const products: Product[] = [
     price: 79.99,
     images: ["/images/cafe.jpg"],
     category: "Biquinis",
-    sizes: ["M",],
+    sizes: ["P","M","G"],
     colors: ["#514240"],
     isNew: true,
-    stock: 2,
+    stock: 0,
   },
   {
     id: "4",
