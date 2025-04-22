@@ -20,10 +20,10 @@ export const products: Product[] = [
     price: 84.99,
     images: ["/images/offwhite.jpg"],
     category: "Biquinis",
-    sizes: ["P", "M"],
+    sizes: ["P",],
     colors: ["#FAF9F6"],
     isNew: true,
-    stock: 2,
+    stock: 1,
   },
   {
     id: "3",
