@@ -11,7 +11,7 @@ export const products: Product[] = [
     sizes: ["M",],
     colors: ["#A020F0"],
     isNew: true,
-    stock: 2,
+    stock: 0,
   },
   {
     id: "2",
@@ -23,7 +23,7 @@ export const products: Product[] = [
     sizes: ["P","M","G"],
     colors: ["#FAF9F6"],
     isNew: true,
-    stock: 0,
+    stock: 1,
   },
   {
     id: "3",
@@ -47,7 +47,7 @@ export const products: Product[] = [
     sizes: ["P","M"],
     colors: ["#ffff00"],
     isNew: true,
-    stock: 2,
+    stock: 1,
   },
   {
     id: "5",
