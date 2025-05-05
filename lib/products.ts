@@ -10,7 +10,7 @@ export const products: Product[] = [
     category: "Biquinis",
     sizes: ["M",],
     colors: ["#A020F0"],
-    isNew: true,
+    isNew:  false,
     stock: 0,
   },
   {
@@ -22,7 +22,7 @@ export const products: Product[] = [
     category: "Biquinis",
     sizes: ["P","M","G"],
     colors: ["#FAF9F6"],
-    isNew: true,
+    isNew:  false,
     stock: 0,
   },
   {
@@ -34,7 +34,7 @@ export const products: Product[] = [
     category: "Biquinis",
     sizes: ["P","M","G"],
     colors: ["#514240"],
-    isNew: true,
+    isNew: false,
     stock: 0,
   },
   {
@@ -58,7 +58,7 @@ export const products: Product[] = [
     category: "Biquinis",
     sizes: ["P"],
     colors: ["#C8E5EB"],
-    isNew: true,
-    stock: 1,
+    isNew: false,
+    stock: 0,
   },
 ];
