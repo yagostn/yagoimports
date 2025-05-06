@@ -48,7 +48,7 @@ export function createWhatsAppLink(
   })
 
   // Create WhatsApp message
-  let message = `*Dunna Moda Praia - Confirmação de Pedido*\n\n`
+  let message = `*Dunna Praia - Confirmação de Pedido*\n\n`
 
   // Customer Information
   if (customerName) message += `*Nome do Cliente:* ${customerName}\n`
@@ -96,7 +96,7 @@ export function createWhatsAppLink(
   }
 
   // Closing message
-  message += `*Obrigado por escolher a Dunna Moda Praia!* \n`
+  message += `*Obrigado por escolher a Dunna Praia!* \n`
   message += `Confirma o pedido? Estamos prontos para fazer seu verão ainda mais especial.`
 
   // Encode message for URL
