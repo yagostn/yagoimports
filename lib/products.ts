@@ -44,7 +44,7 @@ export const products: Product[] = [
     price: 79.99,
     images: ["/images/amarelo.jpg"],
     category: "Biquinis",
-    sizes: ["P","M"],
+    sizes: ["P",],
     colors: ["#ffff00"],
     isNew: true,
     stock: 1,
