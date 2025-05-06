@@ -15,23 +15,22 @@ const bannerItems: BannerItem[] = [
   {
     id: 1,
     image: "/images/capaD1.jpg",
-    title: "Coleção Verão 2025",
-    subtitle: "Descubra as últimas tendências da estação",
+    title: "Coleção Verão",
+    subtitle: "Sinta o verão o ano todo como nossos biquínis excluyivos",
   },
   {
     id: 2,
     image: "/images/capaD2.jpg",
-    title: "Novos Biquínis",
+    title: "Novos Biquinís",
     subtitle: "Conforto e estilo para o seu verão",
   },
-  {
+  { 
     id: 3,
     image: "/images/capaD3.jpg",
-    title: "Promoção Especial",
-    subtitle: "Até 30% de desconto na primeira compra",
+    title: "Sua vibe, seu look, sua praia",
+    subtitle: "Aqui o sol nunca se põe",
   },
-]
-
+] 
 export default function FeaturedBanner() {
   const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -73,7 +72,7 @@ export default function FeaturedBanner() {
             <div className="absolute inset-0 bg-black/30" />
             <div className="absolute inset-0 flex flex-col justify-center items-start p-6 md:p-12 text-white">
               <h2 className="text-3xl md:text-5xl lg:text-5xl font-bold mb-2">{item.title}</h2>
-              <p className="text-base md:text-lg mb-80">{item.subtitle}</p>
+              <p className="text-base md:text-lg mb-90">{item.subtitle}</p>
             </div>
             </div>
           </div>

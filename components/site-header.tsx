@@ -89,7 +89,7 @@ export default function SiteHeader() {
               className="h-30 w-auto object-contain"
               priority
             />
-            <span className="ml-5 text-xl font-bold">DUNNA MODA PRAIA</span>
+            <span className="ml-0 text-xl font-bold">dunnapraia</span>
           </Link>
           <nav className="hidden lg:flex items-center gap-6 ml-10">
             {routes.map((route) => (
