@@ -16,7 +16,7 @@ const bannerItems: BannerItem[] = [
     id: 1,
     image: "/images/capaD1.jpg",
     title: "Coleção Verão",
-    subtitle: "Sinta o verão o ano todo como nossos biquínis exclusivos",
+    subtitle: "Sinta o verão o ano todo com o nossos biquínis exclusivos",
   },
   {
     id: 2,
