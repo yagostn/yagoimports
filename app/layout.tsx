@@ -1,10 +1,10 @@
-import type React from "react";
-import type { Metadata } from "next";
+import type React from "react"
+import type { Metadata } from "next"
 import { Julius_Sans_One } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import SiteHeader from "@/components/site-header";
+import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
 import { CartProvider } from "@/lib/use-cart";
+import SiteHeader from "@/components/site-header";
 
 const juliusSansOne = Julius_Sans_One({
   subsets: ["latin"],
@@ -14,25 +14,20 @@ const juliusSansOne = Julius_Sans_One({
 
 export const metadata: Metadata = {
   title: "DUNNA | Moda Praia",
-  description: "Loja de biquínis com os melhores preços",
-};
+  description: "Moda praia com estilo e qualidade",
+} 
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
-}>) {
+  children: React.ReactNode
+}>) {   
   return (
     <html lang="pt-BR">
       <body className={juliusSansOne.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <CartProvider>
-            <div className="relative flex min-h-screen flex-col">
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+        <CartProvider>
+            <div className="relative flex min-h-screen flex-col"> 
               <SiteHeader />
               <main className="flex-1">{children}</main>
               <footer className="border-t py-6 md:py-0">
@@ -48,5 +43,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

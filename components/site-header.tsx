@@ -47,33 +47,33 @@ export default function SiteHeader() {
         <div className="flex items-center">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon" className="mr-2">
+              <Button variant="ghost" size="icon" className="mr-0">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-[300px] sm:w-[340px]">
-              <div className="flex h-24 items-center border-b">
+                <div className="flex h-24 items-center border-b justify-start pl-4">
                 <Link href="/" onClick={() => setIsOpen(false)}>
                   {/* Logo no menu mobile */}
                   <Image
-                    src="/images/logocortada.png"
-                    alt="DUNNA Logo"
-                    width={220}
-                    height={60}
-                    className="h-30 w-auto object-contain"
+                  src="/images/logocortada.png"
+                  alt="DUNNA Logo"
+                  width={220}
+                  height={60}
+                  className="h-30 w-auto object-contain"
                   />
                 </Link>
-              </div>
-              <nav className="flex flex-col gap-4 mt-6 px-4">
+                </div>
+                <nav className="flex flex-col gap-4 mt-6 px-">
                 {routes.map((route) => (
                   <Link
-                    key={route.href}
-                    href={route.href}
-                    className={`text-lg ${route.active ? "font-medium" : "text-muted-foreground"}`}
-                    onClick={() => setIsOpen(false)}
+                  key={route.href}
+                  href={route.href}
+                  className={`text-lg ${route.active ? "font-medium" : "text-muted-foreground"}`}
+                  onClick={() => setIsOpen(false)}
                   >
-                    {route.label}
+                  {route.label}
                   </Link>
                 ))}
               </nav>
@@ -89,7 +89,7 @@ export default function SiteHeader() {
               className="h-30 w-auto object-contain"
               priority
             />
-            <span className="ml-2 text-xl font-bold">DUNNA MODA PRAIA</span>
+            <span className="ml-5 text-xl font-bold">DUNNA MODA PRAIA</span>
           </Link>
           <nav className="hidden lg:flex items-center gap-6 ml-10">
             {routes.map((route) => (
@@ -107,7 +107,7 @@ export default function SiteHeader() {
         </div>
         <div className="flex items-center gap-4">
           <Link href="/carrinho">
-            <Button variant="ghost" size="icon" className="relative">
+            <Button variant="ghost" size="icon" className="relative lg:hidden">
               <ShoppingBag className="h-5 w-5" />
               {/* Só mostrar o contador de itens do carrinho após a montagem do componente */}
               {isMounted && cartCount > 0 && (

@@ -8,7 +8,8 @@ export interface Product {
   sizes: string[];
   colors: string[];
   isNew?: boolean;
-  stock: number; // Nova propriedade para controlar o estoque
+  stock: number;
+  featured?: boolean// Nova propriedade para controlar o estoque
 }
 export interface CartItem {
   id: string;

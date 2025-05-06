@@ -6,9 +6,7 @@ export default function OutOfStockPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-2">
-        Produtos Esgotados
-      </h1>
+      <h1 className="text-3xl font-bold text-center mb-2"> Produtos Esgotados</h1>
       <p className="text-center text-muted-foreground mb-8">
         Estes produtos estão temporariamente indisponíveis. Volte em breve para
         verificar a disponibilidade.

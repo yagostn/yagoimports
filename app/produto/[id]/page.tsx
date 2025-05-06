@@ -4,12 +4,14 @@ import ProductDetails from "@/components/product-details"
 import RelatedProducts from "@/components/related-products"
 import ImageZoom from "@/components/image-zoom"
 
-interface PageParams {
-  id: string
+interface ProductPageProps {
+  params: {
+    id: string
+  }
 }
 
-// Remova qualquer tipo personalizado e use apenas os tipos básicos
-export default function Page({ params }: { params: PageParams }) {
+export default async function ProductPage({ params }: ProductPageProps) {
+  // Agora a função é assíncrona (async)
   const product = products.find((p) => p.id === params.id)
 
   if (!product) {
