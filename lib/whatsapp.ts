@@ -6,7 +6,7 @@ const WHATSAPP_NUMBER = "5548991961687"
 
 // Color mapping to convert hex to readable name
 const COLOR_MAP: { [key: string]: string } = {
-  "#F4C2C2": "Rosa Bebê",
+  "#FF69B4": "Rosa bebê",
   "#FAF9F6": "Off White",
   "#89CFF0": "Azul Bebê",
   "#392620": "Marrom café",
@@ -17,9 +17,10 @@ const COLOR_MAP: { [key: string]: string } = {
   "#514240": "café",
   "#048000": "Verde Escuro",
   "#000080": "Azul Marinho",
-  "#4169e1": "Azul Royal",
-  "#5b3c1d": "Marrom",
-  "#FF0000": "Vermelho",  
+  "#4169E1": "Azul Royal",
+  "#5B3C1D": "Marrom",
+  "#FF0000": "Vermelho",
+  "#000000": "Preto",
 
 }
 
