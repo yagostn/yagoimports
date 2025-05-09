@@ -17,8 +17,10 @@ const COLOR_MAP: { [key: string]: string } = {
   "#514240": "café",
   "#048000": "Verde Escuro",
   "#000080": "Azul Marinho",
-  "#804580": "Roxo",
-  "#008455":"Verde Azulado"
+  "#4169e1": "Azul Royal",
+  "#5b3c1d": "Marrom",
+  "#FF0000": "Vermelho",  
+
 }
 
 // Function to convert hex color to readable name
