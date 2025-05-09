@@ -61,4 +61,31 @@ export const products: Product[] = [
     isNew: false,
     stock: 0,
   },
+  {
+    id: "6",
+    name: "Modelo Jasmin - Rosa bebê",
+    description: "Tecido Beach Gloss com FPS 50\n- Acompanha bojo removível e saquinho\n- P 36/38 M 38/40 G 40/42\n- Alças e Calcinha reguláveis",
+    price: 64.99,
+    images: ["/images/AzulCristal.jpg"],
+    category: "Biquinis",
+    sizes: ["M"],
+    colors: ["#C8E5EB"],
+    isNew: true,
+    stock: 1,
+  },
+  {
+    id: "7",
+    name: "Modelo Ibiza - Azul Royal",
+    description: "Tecido Beach Gloss com FPS 50\n- Acompanha bojo removível e saquinho\n- P 36/38 M 38/40 G 40/42\n- Alças e Calcinha reguláveis",
+    price: 64.99,
+    images: ["/images/AzulCristal.jpg"],
+    category: "Biquinis",
+    sizes: ["M"],
+    colors: ["#C8E5EB"],
+    isNew: true,
+    stock: 1,
+
+
+
+  },
 ];
