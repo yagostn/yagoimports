@@ -90,7 +90,7 @@ export const products: Product[] = [
     name: "Modelo Aurora - Roxo",
     description: "Tecido Beach Gloss com FPS 50\n- Acompanha bojo removível e saquinho\n- P 36/38 M 38/40 G 40/42\n",
     price: 84.99,
-    images: ["/images/roxo1.jpg"],
+    images: ["/images/Roxo1.jpg"],
     category: "Biquinis",
     sizes: ["G"],
     colors: ["#A020F0"],
