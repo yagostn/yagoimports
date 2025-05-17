@@ -47,7 +47,7 @@ export const products: Product[] = [
     sizes: ["P",],
     colors: ["#ffff00"],
     isNew: true,
-    stock: 1,
+    stock: 0,
   },
   {
     id: "5",
@@ -59,7 +59,7 @@ export const products: Product[] = [
     sizes: ["P"],
     colors: ["#C8E5EB"],
     isNew: false,
-    stock: 1,
+    stock: 0,
   },
   {
     id: "6",
