@@ -71,7 +71,7 @@ export const products: Product[] = [
     sizes: ["M"],
     colors: ["#FF69B4"],
     isNew: true,
-    stock: 1,
+    stock: 0,
   },
   {
     id: "7",
