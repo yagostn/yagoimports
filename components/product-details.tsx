@@ -78,7 +78,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             fontFamily: "Arial, serif",
             lineHeight: 1.6,
             fontSize: "1rem",
-            color: "oklch(46.91% 0 14.29)",
+            color: "#7B3F00", // marrom
           }}
         >
           {product.description.split('\n').map((line, index) => (

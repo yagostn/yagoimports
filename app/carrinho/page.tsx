@@ -126,12 +126,12 @@ export default function CartPage() {
               <Button
                 variant="outline"
                 onClick={clearCart}
-                className="bg-white text-black hover:bg-gray-100 w-full sm:w-auto"
+                className="bg-white text-[#7B3F00] hover:bg-gray-100 w-full sm:w-auto"
               >
                 Limpar Carrinho
               </Button>
               <Link href="/" className="w-full sm:w-auto">
-                <Button variant="outline" className="bg-white text-black hover:bg-gray-100 w-full">
+                <Button variant="outline" className="bg-white text-[#7B3F00] hover:bg-gray-100 w-full">
                   Continuar Comprando
                 </Button>
               </Link>
@@ -190,11 +190,11 @@ export default function CartPage() {
                       </Label>
                     </div>
                   </RadioGroup>
-                  {!paymentMethod && (
-                    <p className="text-xs text-muted-foreground mt-2">
-                      Selecione um método de pagamento para continuar
-                    </p>
-                  )}
+                    {!paymentMethod && (
+                      <p className="text-xs mt-2" style={{ color: "#7B3F00" }}>
+                        Selecione um método de pagamento para continuar
+                      </p>
+                      )}
                 </div>
 
                 <Button

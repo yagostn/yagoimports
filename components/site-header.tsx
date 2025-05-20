@@ -57,7 +57,7 @@ export default function SiteHeader() {
                 <Link href="/" onClick={() => setIsOpen(false)}>
                   {/* Logo no menu mobile */}
                   <Image
-                  src="/images/logocortada.png"
+                  src="/images/logo1.png"
                   alt="DUNNA Logo"
                   width={220}
                   height={60}
@@ -82,14 +82,14 @@ export default function SiteHeader() {
           <Link href="/" className="flex items-center">
             {/* Logo principal no header */}
             <Image
-              src="/images/logocortada.png"
+              src="/images/logo1.png"
               alt="DUNNA Logo"
               width={180}
               height={60}
               className="h-30 w-auto object-contain"
               priority
             />
-            <span className="ml-0 text-xl font-bold">dunnapraia</span>
+
           </Link>
           <nav className="hidden lg:flex items-center gap-6 ml-10">
             {routes.map((route) => (
