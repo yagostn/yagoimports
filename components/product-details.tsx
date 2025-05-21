@@ -181,15 +181,18 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4 mt-4">
-        <Button onClick={handleAddToCart} className="flex-1" disabled={isOutOfStock || addedToCart}>
+        <Button onClick={handleAddToCart}
+          className="flex-1 bg-[#614e37] text-white hover:bg-[#633200]"
+          disabled={isOutOfStock || addedToCart}
+        >
           {addedToCart ? (
-            <>
-              <Check className="mr-2 h-4 w-4" /> Adicionado
-            </>
+        <>
+          <Check className="mr-2 h-4 w-4" /> Adicionado
+        </>
           ) : (
-            <>
-              <ShoppingCart className="mr-2 h-4 w-4" /> Adicionar ao Carrinho
-            </>
+        <>
+          <ShoppingCart className="mr-2 h-4 w-4" /> Adicionar ao Carrinho
+        </>
           )}
         </Button>
         <Button onClick={handleBuyNow} variant="secondary" className="flex-1" disabled={isOutOfStock}>

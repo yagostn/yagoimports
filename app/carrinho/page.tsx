@@ -75,7 +75,7 @@ export default function CartPage() {
                     <h3 className="font-medium break-words pr-2">{item.name}</h3>
                     <div className="font-bold mt-1 sm:mt-0">{formatCurrency(item.price * item.quantity)}</div>
                   </div>
-                  <div className="text-sm text-muted-foreground mt-1">
+                    <div className="text-sm mt-1" style={{ color: "#7B3F00" }}>
                     {item.size && <span className="mr-2">Tamanho: {item.size}</span>}
                     {item.color && (
                       <span className="inline-flex items-center">
