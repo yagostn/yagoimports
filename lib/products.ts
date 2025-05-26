@@ -156,9 +156,22 @@ export const products: Product[] = [
     colors: ["#4169e1"],
     isNew: true,
     stock: 0,
+    },
+    {
+    id: "14",
+    name: "Vestido Melissa - Crepe Ceda",
+    description: "Tecido Beach Gloss com FPS 50\n- Acompanha bojo removível e saquinho\n- P 36/38 M 38/40 G 40/42\n",
+    price: 74.99,
+    images: ["/images/azulroyal2.jpg"],
+    category: "Vestuario",
+    sizes: ["U"],
+    colors: ["#4169e1"],
+    isNew: true,
+    stock: 0,
+    },
+    
 
 
 
 
-  },
 ];  
