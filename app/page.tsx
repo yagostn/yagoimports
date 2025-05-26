@@ -5,11 +5,7 @@ import FeaturedBanner from "@/components/featured-banner"
 import { products } from "@/lib/products"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-<<<<<<< HEAD
 import { useState, useEffect } from "react"
-=======
-import { useState } from "react"
->>>>>>> 93d29c3886bba45184c6bdf07443c007a2261544
 
 export default function Home() {
   const inStockProducts = products.filter((product) => product.stock > 0)
@@ -48,33 +44,21 @@ export default function Home() {
           <Button
             variant="outline"
             className="bg-white text-[#7B3F00] hover:bg-gray-100"
-<<<<<<< HEAD
             onClick={() => handleCategory()}
-=======
-            onClick={() => window.location.href = '/'}
->>>>>>> 93d29c3886bba45184c6bdf07443c007a2261544
           >
             Todos
           </Button>
           <Button
             variant="outline"
             className="bg-white text-[#7B3F00] hover:bg-gray-100"
-<<<<<<< HEAD
             onClick={() => handleCategory("biquinis")}
-=======
-            onClick={() => window.location.href = '/?category=biquinis'}
->>>>>>> 93d29c3886bba45184c6bdf07443c007a2261544
           >
             Biquinis
           </Button>
           <Button
             variant="outline"
             className="bg-white text-[#7B3F00] hover:bg-gray-100"
-<<<<<<< HEAD
             onClick={() => handleCategory("vestuario")}
-=======
-            onClick={() => window.location.href = '/?category=vestuario'}
->>>>>>> 93d29c3886bba45184c6bdf07443c007a2261544
           >
             Vestuário
           </Button>
@@ -82,15 +66,8 @@ export default function Home() {
 
         <ProductGrid 
           products={inStockProducts.filter(product => {
-<<<<<<< HEAD
             if (!categoryFilter) return true
             return product.category.toLowerCase() === categoryFilter.toLowerCase()
-=======
-            const searchParams = new URLSearchParams(window.location.search);
-            const categoryFilter = searchParams.get('category');
-            if (!categoryFilter) return true;
-            return product.category.toLowerCase() === categoryFilter.toLowerCase();
->>>>>>> 93d29c3886bba45184c6bdf07443c007a2261544
           })} 
           showOutOfStock={false} 
         />
