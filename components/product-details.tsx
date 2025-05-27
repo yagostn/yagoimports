@@ -61,11 +61,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
           <h1 className="text-1.5xl font-bold">{product.name}</h1>
           <p className="text-xl font-bold mt-2">{formatCurrency(product.price)}</p>
           <p className="text-sm text-muted-foreground">
-<<<<<<< HEAD
             {calculateInstallments(product.price)} com juros no cartão
-=======
-            {calculateInstallments(product.price)} 
->>>>>>> 58b09a4 (mercadorias novas)
           </p>
         </div>
         {isOutOfStock ? (
