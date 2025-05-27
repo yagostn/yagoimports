@@ -13,7 +13,11 @@ export function formatCurrency(value: number): string {
 }
 
 export function calculateInstallments(price: number, installments: number = 2): string {
+<<<<<<< HEAD
   const interestRate = 0.0609; // 6.09% interest rate
+=======
+  const interestRate = 0.5190; // 6.09% interest rate
+>>>>>>> 58b09a4 (mercadorias novas)
   const monthlyRate = interestRate / 12; // Monthly interest rate
   
   // Calculate installment value with interest using the compound interest formula
