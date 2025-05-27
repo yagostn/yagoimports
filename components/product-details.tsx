@@ -1,12 +1,10 @@
-"use client"
-
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import type { Product } from "@/lib/types"
 import { Button } from "@/components/ui/button"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
-import { formatCurrency } from "@/lib/utils"
+import { formatCurrency, calculateInstallments } from "@/lib/utils"
 import { useCart } from "@/lib/use-cart"
 import { ShoppingCart, Check, AlertTriangle } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
@@ -60,6 +58,9 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         <div>
           <h1 className="text-1.5xl font-bold">{product.name}</h1>
           <p className="text-xl font-bold mt-2">{formatCurrency(product.price)}</p>
+          <p className="text-sm text-muted-foreground">
+            {calculateInstallments(product.price)} sem juros no cartão
+          </p>
         </div>
         {isOutOfStock ? (
           <Badge variant="destructive" className="text-sm px-3 py-1">
@@ -78,7 +79,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             fontFamily: "Arial, serif",
             lineHeight: 1.6,
             fontSize: "1rem",
-            color: "#7B3F00", // marrom
+            color: "#7B3F00",
           }}
         >
           {product.description.split('\n').map((line, index) => (
@@ -186,13 +187,13 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
           disabled={isOutOfStock || addedToCart}
         >
           {addedToCart ? (
-        <>
-          <Check className="mr-2 h-4 w-4" /> Adicionado
-        </>
+            <>
+              <Check className="mr-2 h-4 w-4" /> Adicionado
+            </>
           ) : (
-        <>
-          <ShoppingCart className="mr-2 h-4 w-4" /> Adicionar ao Carrinho
-        </>
+            <>
+              <ShoppingCart className="mr-2 h-4 w-4" /> Adicionar ao Carrinho
+            </>
           )}
         </Button>
         <Button onClick={handleBuyNow} variant="secondary" className="flex-1" disabled={isOutOfStock}>

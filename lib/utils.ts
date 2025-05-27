@@ -11,3 +11,8 @@ export function formatCurrency(value: number): string {
     currency: "BRL",
   }).format(value);
 }
+
+export function calculateInstallments(price: number, installments: number = 2): string {
+  const installmentValue = price / installments;
+  return `${installments}x de ${formatCurrency(installmentValue)}`;
+}
