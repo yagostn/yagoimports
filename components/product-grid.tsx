@@ -57,7 +57,7 @@ export default function ProductGrid({ products, showOutOfStock = true }: Product
             <CardFooter className="p-3 pt-0 flex flex-col items-start">
               <div className="font-bold">{formatCurrency(product.price)}</div>
               <div className="text-sm text-muted-foreground">
-                {calculateInstallments(product.price)} com juros
+                {calculateInstallments(product.price)} 
               </div>
             </CardFooter>
           </Card>
