@@ -14,21 +14,21 @@ interface BannerItem {
 const bannerItems: BannerItem[] = [
   {
     id: 1,
-    image: "/images/capaD1.jpg",
-    title: "Coleção Verão",
-    subtitle: "Sinta o verão o ano todo com nossos biquínis exclusivos",
+    image: "/images/body-nude1.jpg",
+    title: "",
+    subtitle: "",
   },
   {
     id: 2,
-    image: "/images/capaD2.jpg",
-    title: "Novos Biquinís",
-    subtitle: "Conforto e estilo para o seu verão",
+    image: "/images/vestidofloral.jpg",
+    title: "",
+    subtitle: "",
   },
   { 
     id: 3,
-    image: "/images/capaD3.jpg",
-    title: "Sua vibe, seu look, sua praia",
-    subtitle: "Aqui o sol nunca se põe",
+    image: "/images/body-nude.jpg",
+    title: "",
+    subtitle: "",
   },
 ] 
 export default function FeaturedBanner() {
