@@ -23,8 +23,9 @@ const COLOR_MAP: { [key: string]: string } = {
   "#000000": "Preto",
   "#E2725B": "Telha",
   "#808080": "Cinza",
-  "#ebc8b2": "Nude",
+  "#EBC8B2": "Nude",
   "#FFFFFF": "Branco",
+  "#0000FF": "Azul",
 
 }
 
