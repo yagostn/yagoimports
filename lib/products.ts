@@ -232,7 +232,7 @@ export const products: Product[] = [
     {
     id: "20",
     name: "Macaquinho",
-    description: "- Tecido leve e confortável\n- Tamanho único (P/M)",
+    description: "- Tecido leve e confortável\n- Tamanho único (P/M/G)",
     price: 109.99,
     images: ["/images/macaquinho-preto.jpg"],
     category: "Vestuario",
@@ -244,7 +244,7 @@ export const products: Product[] = [
     {
     id: "21",
     name: "Conjunto festa",
-    description: "- Tecido leve e confortável\n- Tamanho único (P/M)",
+    description: "- Tecido leve e confortável\n- Tamanho único (P/M/G)",
     price: 84.99,
     images: ["/images/conjuntofesta.jpg"],
     category: "Vestuario",
@@ -256,7 +256,7 @@ export const products: Product[] = [
     {
     id: "22",
     name: "Vestido Maju",
-    description: "- Tamanho único (P/M)",
+    description: "- Tamanho único (P/M/G)",
     price: 44.99,
     images: ["/images/vestidomaju2.jpg"],
     category: "Vestuario",
@@ -292,7 +292,7 @@ export const products: Product[] = [
     {
     id: "25",
     name: "Vestido Floral",
-    description: "- Tecido leve e confortável\n- Tamanho único (P/M)",
+    description: "- Tecido leve e confortável\n- Tamanho único (P/M/G)",
     price: 84.99,
     images: ["/images/vestidofloral.jpg"], 
     category: "Vestuario",
@@ -304,7 +304,7 @@ export const products: Product[] = [
     {
     id: "26",
     name: "Vestido Laço",
-    description: "- Tecido leve e confortável\n- Tamanho único (P/M)",
+    description: "- Tecido leve e confortável\n- Tamanho único (P/M/G)",
     price: 89.99,
     images: ["/images/vestidolaço.jpg"], 
     category: "Vestuario",
@@ -316,7 +316,7 @@ export const products: Product[] = [
     {
     id: "27",
     name: "Saia plissada",
-    description: "- Tecido leve e confortável\n- Tamanho único (P/M)",
+    description: "- Tecido leve e confortável\n- Tamanho único (P/M/G)",
     price: 69.99,
     images: ["/images/body-nude.jpg"], 
     category: "Vestuario",
@@ -340,7 +340,7 @@ export const products: Product[] = [
     {
     id: "29",
     name: "Vestido Melissa",
-    description: "- Tamanho único (P/M)",
+    description: "- Tamanho único (P/M/G)",
     price: 79.99,
     images: ["/images/vestidomelissa.jpg","/images/vestidomelissa1.jpg"], 
     category: "Vestuario",
@@ -352,7 +352,7 @@ export const products: Product[] = [
     {
     id: "30",
     name: "Saia Dunna",
-    description: "- Tamanho único (P/M)", 
+    description: "- Tamanho único (P/M/G)", 
     price: 49.99,
     images: ["/images/saiabranca.jpg"], 
     category: "Vestuario",
@@ -364,7 +364,7 @@ export const products: Product[] = [
     {
     id: "31",
     name: "Saia Balonê Linho",
-    description: "- Tamanho único (P/M)\n", 
+    description: "- Tamanho único (P/M/G)\n", 
     price: 29.99,
     images: ["/images/saialinho.jpg"], 
     category: "Vestuario",
@@ -376,7 +376,7 @@ export const products: Product[] = [
     {
     id: "32",
     name: "Body Cavado",
-    description: "- Tamanho único (P/M)\n", 
+    description: "- Tamanho único (P/M/G)\n", 
     price: 29.99,
     images: ["/images/bodycinza.jpg"], 
     category: "Vestuario",
@@ -400,7 +400,7 @@ export const products: Product[] = [
     {
     id: "34",
     name: "Vestido Verão ",
-    description: "- Tamanho único (P/M)\n", 
+    description: "- Tamanho único (P/M/G)\n", 
     price: 69.99,
     images: ["/images/vestidoverde.jpg"], 
     category: "Vestuario",
@@ -412,7 +412,7 @@ export const products: Product[] = [
     {
     id: "35",
     name: "Saia com detalhe de laço",
-    description: "- Tamanho único (P/M)\n", 
+    description: "- Tamanho único (P/M/G)\n", 
     price: 59.99,
     images: ["/images/saialaço.jpg"], 
     category: "Vestuario",
@@ -423,15 +423,39 @@ export const products: Product[] = [
     },
     {
     id: "36",
-    name: "Body decote quadrado",
-    description: "- Tamanho único (P/M)\n", 
+    name: "Body Branco",
+    description: "- Tamanho único (P/M/G)\n", 
     price: 44.99,
-    images: ["/images/bodybranco.jpg","/images/bodycinza2.jpg","/images/bodypreto.jpg"], 
+    images: ["/images/bodybranco1.jpg"], 
     category: "Vestuario",
     sizes: ["U"],
-    colors:["#000000", "#FFFFFF", "#808080"].filter(color => color !== "#000000"),
+    colors:["#ffffffff"],
     isNew: true,
-    stock: 2, 
+    stock: 1, 
+    },
+    {
+    id: "37",
+    name: "Body Cinza",
+    description: "- Tamanho único (P/M/G)\n", 
+    price: 44.99,
+    images: ["/images/bodycinza1.jpg"], 
+    category: "Vestuario",
+    sizes: ["U"],
+    colors:["#808080"],
+    isNew: true,
+    stock: 1, 
+    },
+    {
+    id: "38",
+    name: "Cropped batinha",
+    description: "- Tamanho único (P/M/G)\n", 
+    price: 49.99,
+    images: ["/images/croppedbatinha.jpg"], 
+    category: "Vestuario",
+    sizes: ["U"],
+    colors:["#FFFFFF"],
+    isNew: true,
+    stock: 1, 
     },
     
 ];  
