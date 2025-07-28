@@ -481,5 +481,17 @@ export const products: Product[] = [
     isNew: true,
     stock: 0, 
     },
+        {
+    id: "41",
+    name: "Conjuto Colete",
+    description: "- Tamanho único (P/M/G)\n", 
+    price: 79.99,
+    images: ["/images/colete.jpg"], 
+    category: "Vestuario",
+    sizes: ["U"],
+    colors:["#ea72bcff"],
+    isNew: true,
+    stock: 1, 
+    },
     
 ];  
