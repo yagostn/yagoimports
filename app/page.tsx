@@ -37,30 +37,32 @@ export default function Home() {
     <>
       <FeaturedBanner />
 
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-center mb-4">Modelos disponíveis</h1>
+      <div className="container mx-auto px-2 py-8">
+        <h1 className="text-3xl font-bold text-center mb-4">
+          Sejam bem-vindos a loja com o melhor preço e qualidade!
+        </h1>
 
         <div className="flex justify-center gap-4 mb-8">
           <Button
             variant="outline"
-            className="bg-white text-[#7B3F00] hover:bg-gray-100"
+            className="bg-white text-[#000000] hover:bg-gray-100"
             onClick={() => handleCategory()}
           >
             Todos
           </Button>
           <Button
             variant="outline"
-            className="bg-white text-[#7B3F00] hover:bg-gray-100"
-            onClick={() => handleCategory("biquinis")}
+            className="bg-white text-[#000000] hover:bg-gray-100"
+            onClick={() => handleCategory("Camisas")}
           >
-            Biquinis
+            Camisas
           </Button>
           <Button
             variant="outline"
-            className="bg-white text-[#7B3F00] hover:bg-gray-100"
-            onClick={() => handleCategory("vestuario")}
+            className="bg-white text-[#000000] hover:bg-gray-100"
+            onClick={() => handleCategory("Shorts Sarjas")}
           >
-            Vestuário
+            Shorts Sarjas
           </Button>
         </div>
 

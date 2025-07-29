@@ -2,7 +2,7 @@ import type { CartItem } from "./types"
 import { formatCurrency } from "./utils"
 
 // Substitua pelo seu número de WhatsApp (com código do país)
-const WHATSAPP_NUMBER = "5548991961687"
+const WHATSAPP_NUMBER = "5579981574965"
 
 // Color mapping to convert hex to readable name
 const COLOR_MAP: { [key: string]: string } = {

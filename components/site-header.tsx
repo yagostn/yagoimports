@@ -27,7 +27,7 @@ export default function SiteHeader() {
       setCartCount(cart.reduce((acc, item) => acc + item.quantity, 0))
     }
   }, [cart, isMounted])
-
+  // Adicione uma margem esquerda maior para empurrar os itens para a direita
   const routes = [
     {
       href: "/",
@@ -39,11 +39,35 @@ export default function SiteHeader() {
       label: "Esgotados",
       active: pathname === "/esgotados",
     },
+    {
+      href: "/Camisas",
+      label: "Camisas",
+      active: pathname === "/Camisas",
+    },
+    {
+      href: "#",
+      label: "Shorts",
+      active: ["/Shorts", "/Shorts Sarjas", "/Shorts Linho"].includes(pathname),
+      subRoutes: [
+        {
+          href: "/Shorts",
+          label: "Todos",
+        },
+        {
+          href: "/Shorts Sarjas",
+          label: "Sarjas",
+        },
+        {
+          href: "/Shorts Linho",
+          label: "Linho",
+        },
+      ],
+    },
   ]
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      <div className="container mx-auto flex h-17 items-center justify-between px-7">
         <div className="flex items-center">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="lg:hidden">
@@ -52,16 +76,16 @@ export default function SiteHeader() {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[300px] sm:w-[340px]">
+            <SheetContent side="left" className="w-[250px] sm:w-[340px]">
                 <div className="flex h-24 items-center border-b justify-start pl-4">
                 <Link href="/" onClick={() => setIsOpen(false)}>
                   {/* Logo no menu mobile */}
                   <Image
-                  src="/images/logo1.png"
-                  alt="DUNNA Logo"
-                  width={220}
+                  src="/images/logo3.png"
+                  alt="yago logo"
+                  width={230}
                   height={60}
-                  className="h-30 w-auto object-contain"
+                  className="h-40 w-auto object-contain"
                   />
                 </Link>
                 </div>
@@ -79,18 +103,19 @@ export default function SiteHeader() {
               </nav>
             </SheetContent>
           </Sheet>
-          <Link href="/" className="flex items-center">
-            {/* Logo principal no header */}
-            <Image
-              src="/images/logo1.png"
-              alt="DUNNA Logo"
-              width={180}
-              height={60}
-              className="h-30 w-auto object-contain"
+            <div className="flex items-center mt-5">
+            <Link href="/" className="flex items-center">
+              {/* Logo principal no header */}
+              <Image
+              src="/images/logo3.png"
+              alt="Yago Logo"
+              width={250}
+              height={100}
+              className="h-40 w-70 object-contain"
               priority
-            />
-
-          </Link>
+              />
+            </Link>
+            </div>
           <nav className="hidden lg:flex items-center gap-6 ml-10">
             {routes.map((route) => (
               <Link

@@ -10,7 +10,7 @@ interface BannerItem {
 
 const bannerItem: BannerItem = {
   id: 1,
-  image: "/images/logo.jpg",
+  image: "/images/logo1.jpg",
   title: "",
   subtitle: "",
 }

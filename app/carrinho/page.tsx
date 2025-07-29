@@ -75,7 +75,7 @@ export default function CartPage() {
                     <h3 className="font-medium break-words pr-2">{item.name}</h3>
                     <div className="font-bold mt-1 sm:mt-0">{formatCurrency(item.price * item.quantity)}</div>
                   </div>
-                    <div className="text-sm mt-1" style={{ color: "#7B3F00" }}>
+                    <div className="text-sm mt-1" style={{ color: "#000000" }}>
                     {item.size && <span className="mr-2">Tamanho: {item.size}</span>}
                     {item.color && (
                       <span className="inline-flex items-center">
@@ -126,12 +126,12 @@ export default function CartPage() {
               <Button
                 variant="outline"
                 onClick={clearCart}
-                className="bg-white text-[#7B3F00] hover:bg-gray-100 w-full sm:w-auto"
+                className="bg-white text-[#000000] hover:bg-gray-100 w-full sm:w-auto"
               >
                 Limpar Carrinho
               </Button>
               <Link href="/" className="w-full sm:w-auto">
-                <Button variant="outline" className="bg-white text-[#7B3F00] hover:bg-gray-100 w-full">
+                <Button variant="outline" className="bg-white text-[#000000] hover:bg-gray-100 w-full">
                   Continuar Comprando
                 </Button>
               </Link>
@@ -191,7 +191,7 @@ export default function CartPage() {
                     </div>
                   </RadioGroup>
                     {!paymentMethod && (
-                      <p className="text-xs mt-2" style={{ color: "#7B3F00" }}>
+                      <p className="text-xs mt-2" style={{ color: "#000000" }}>
                         Selecione um método de pagamento para continuar
                       </p>
                       )}

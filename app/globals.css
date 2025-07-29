@@ -19,7 +19,7 @@
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
-  --color-foreground: #6B3F1D;
+  --color-foreground: #000000 ;
   --color-chart-2: var(--chart-2);
   --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
@@ -46,15 +46,15 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #a9a9a9;
+  --background: #ffeb99;
   --foreground: oklch(0% 0 100.06);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(100% 0 0);
-  --card-foreground: #6B3F1D;
-  --category-foreground: #6B3F1D;
-  --description: #6B3F1D;
+  --card-foreground: #000000;
+  --category-foreground: #000000;
+  --description: #000000;
   --primary: oklch(0.208 0.042 265.755);
   --primary-foreground: oklch(0.984 0.003 247.858);
   --secondary: oklch(0.968 0.007 247.896);
