@@ -81,7 +81,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             fontFamily: "Arial, serif",
             lineHeight: 1.6,
             fontSize: "1rem",
-            color: "#7B3F00",
+            color: "#000000",
           }}
         >
           {product.description.split('\n').map((line, index) => (
@@ -185,7 +185,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
 
       <div className="flex flex-col sm:flex-row gap-4 mt-4">
         <Button onClick={handleAddToCart}
-          className="flex-1 bg-[#614e37] text-white hover:bg-[#633200]"
+          className="flex-1 bg-[#000000] text-white hover:bg-[#808080]"
           disabled={isOutOfStock || addedToCart}
         >
           {addedToCart ? (
