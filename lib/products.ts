@@ -9,12 +9,12 @@ export const products: Product[] = [
     images: ["/images/acostamentoazul.jpg","/images/acostamentobranca.jpg"],
     category: "Camisas",
     sizes: ["M", "G"],
-    colors: ["#0f0264ff","#FFFFFF"],
+    colors: ["#000080","#FFFFFF"],
     isNew:  true,
     stock: 1,
     variants: [
       {
-        color: "#0f0264ff",
+        color: "#000080",
         image: "/images/acostamentoazul.jpg",
         sizes: [{ size: "G", stock: 1 }],
       },
