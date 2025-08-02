@@ -26,6 +26,7 @@ const COLOR_MAP: { [key: string]: string } = {
   "#EBC8B2": "Nude",
   "#FFFFFF": "Branco",
   "#0000FF": "Azul",
+  "#F5F5DC": "Bege",
 
 }
 
@@ -56,7 +57,7 @@ export function createWhatsAppLink(
   })
 
   // Create WhatsApp message
-  let message = `*Dunna Praia - Confirmação de Pedido*\n\n`
+  let message = `*Yago Imports - Confirmação de Pedido*\n\n`
 
   // Customer Information
   if (customerName) message += `*Nome do Cliente:* ${customerName}\n`
@@ -104,8 +105,8 @@ export function createWhatsAppLink(
   }
 
   // Closing message
-  message += `*Obrigado por escolher a Dunna Praia!* \n`
-  message += `Confirma o pedido? Estamos prontos para fazer seu verão ainda mais especial.`
+  message += `*Obrigado pela prefrência!* \n`
+  message += `.Yago Imports* \n`
 
   // Encode message for URL
   const encodedMessage = encodeURIComponent(message)

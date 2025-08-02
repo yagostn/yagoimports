@@ -28,7 +28,7 @@ export const products: Product[] = [
   {
     id: "2",
     name: "Short Sarja Polo Ralph Lauren",
-    description: "Tecido Beach Gloss com FPS 50\n- Acompanha bojo removível e saquinho\n- P 36/38 M 38/40 G 40/42\n- Alças e Calcinha reguláveis",
+    description: "Shorts Sarja Polo Ralph Lauren com Otíma qualidade e conforto.",
     price: 69.99,
     images: ["/images/shortsajapolo1.jpg"],
     category: "Shorts Sarjas",
@@ -48,4 +48,62 @@ export const products: Product[] = [
         sizes: [{ size: "M", stock: 1 }],
       },
     ],
+  },
+  {
+    id: "3",
+    name: "Short Sarja Tommy Hilfiger",
+    description: "Shorts Sarja Tommy Hilfiger com Otíma qualidade e conforto.",
+    price: 69.99,
+    images: ["/images/shortsajatommy.jpg"],
+    category: "Shorts Sarjas",
+    sizes: ["M",],
+    colors: ["#000000",],
+    isNew:  true,
+    stock: 1,
+   variants: [
+      {
+        color: "#000000",
+        image: "/images/shortsajatommy.jpg",
+        sizes: [{ size: "M", stock: 1 }],
+      },
+    ],
+      },
+  {
+    id: "4",
+    name: "Short Sarja Boss",
+    description: "Shorts Sarja Boss com Otíma qualidade e conforto.",
+    price: 69.99,
+    images: ["/images/shortsajaboss.jpg"],
+    category: "Shorts Sarjas",
+    sizes: ["M",],
+    colors: ["#F5F5DC",],
+    isNew:  true,
+    stock: 1,
+   variants: [
+      {   
+        color: "#F5F5DC",
+        image: "/images/shortsajaboss.jpg",
+        sizes: [{ size: "M", stock: 1 }],
+      },
+    ],
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
   },];  
+  
