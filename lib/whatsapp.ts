@@ -27,6 +27,7 @@ const COLOR_MAP: { [key: string]: string } = {
   "#FFFFFF": "Branco",
   "#0000FF": "Azul",
   "#F5F5DC": "Bege",
+  "#084808": "Verde Escuro",
 
 }
 
@@ -106,7 +107,7 @@ export function createWhatsAppLink(
 
   // Closing message
   message += `*Obrigado pela prefrência!* \n`
-  message += `.Yago Imports* \n`
+  message += `*Yago Imports!*\n`
 
   // Encode message for URL
   const encodedMessage = encodeURIComponent(message)
