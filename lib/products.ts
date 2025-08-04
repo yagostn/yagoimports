@@ -3,7 +3,7 @@ import type { Product } from "./types";
 export const products: Product[] = [
   {
     id: "1",
-    name: " Camisa Acostamento",
+    name: " Camisa Acostamento Basica",
     description: "Camisa Acostamento com Otíma qualidade e conforto",
     price: 49.99,
     images: ["/images/acostamentoazul.jpg", "/images/acostamentobranca.jpg"],
@@ -78,18 +78,18 @@ export const products: Product[] = [
     sizes: ["M",],
     colors: ["#F5F5DC",],
     isNew: true,
-    stock: 1,
+    stock: 0,
     variants: [
       {
         color: "#F5F5DC",
         image: "/images/shortsajaboss.jpg",
-        sizes: [{ size: "M", stock: 1 }],
+        sizes: [{ size: "M", stock: 0 }],
       },
     ],
   },
   {
     id: "5",
-    name: "Camisa Acostamento",
+    name: "Camisa Acostamento Off White",
     description: "Camisa Acostamento com Otíma qualidade e conforto!",
     price: 59.99,
     images: ["/images/acostamentooff.jpg", "/images/euacostamentooff.jpg"],
@@ -108,7 +108,7 @@ export const products: Product[] = [
   },
   {
     id: "6",
-    name: "Camisa Acostamento",
+    name: "Camisa Acostamento Azul Marinho",
     description: "Camisa Acostamento com Otíma qualidade e conforto!",
     price: 79.99,
     images: ["/images/acostamentoG.jpg", "/images/euacostamentoG.jpg"],
@@ -126,7 +126,7 @@ export const products: Product[] = [
     ],
   },  {
     id: "7",
-    name: "Camisa Colcci",
+    name: "Camisa Colcci Azul",
     description: "Camisa Colcci com Otíma qualidade e conforto!",
     price: 59.99,
     images: ["/images/colcciazul.jpg", "/images/eucolcciazul.jpg"],
@@ -145,7 +145,7 @@ export const products: Product[] = [
   },
   {
     id: "8",
-    name: "Camisa Colcci",
+    name: "Camisa Colcci Preto CC",
     description: "Camisa Colcci com Otíma qualidade e conforto!",
     price: 69.99,
     images: ["/images/colccipreto.jpg", "/images/eucolccipreta.jpg"],
@@ -164,18 +164,18 @@ export const products: Product[] = [
   },
   {
     id: "9",
-    name: "Camisa Colcci",
+    name: "Camisa Colcci branca",
     description: "Camisa Colcci com Otíma qualidade e conforto!",
     price: 69.99,
     images: ["/images/colccibranca.jpg", "/images/eucolccibranca.jpg"],
     category: "Camisas",
     sizes: ["M",],
-    colors: ["#ffffffff",],
+    colors: ["#FFFFFFFF",],
     isNew: true,
     stock: 1,
     variants: [
       {
-        color: "#ffffffff",
+        color: "#FFFFFFFF",
         image: "/images/colccibranca.jpg",
         sizes: [{ size: "M", stock: 1 }],
       },
@@ -202,18 +202,18 @@ export const products: Product[] = [
     },
   {
     id: "11",
-    name: "Camisa TXC ",
+    name: "Camisa TXC Branca",
     description: "Camisa TXC com Otíma qualidade e conforto!",
     price: 69.99,
     images: ["/images/txcbranca.jpg", "/images/eutxcbranca.jpg"],
     category: "Camisas",
     sizes: ["M",],
-    colors: ["#ffffffff",],
+    colors: ["#FFFFFFFF",],
     isNew: true,
     stock: 1,
     variants: [
       {
-        color: "#ffffffff",
+        color: "#FFFFFFFF",
         image: "/images/txcbranca.jpg",
         sizes: [{ size: "M", stock: 1 }],
       },
@@ -221,7 +221,7 @@ export const products: Product[] = [
     },
   {
     id: "12",
-    name: "Camisa TXC ",
+    name: "Camisa TXC Simbolo Branco",
     description: "Camisa TXC com Otíma qualidade e conforto!",
     price: 69.99,
     images: ["/images/txcpreta.jpg", "/images/eutxcpreta.jpg"],
@@ -259,7 +259,7 @@ export const products: Product[] = [
   },
   {
     id: "14",
-    name: "Camisa Colcci",
+    name: "Camisa Colcci Off White",
     description: "Camisa Colcci com Otíma qualidade e conforto!",
     price: 69.99,
     images: ["/images/colccioff.jpg", "/images/eucolccioff.jpg"],
