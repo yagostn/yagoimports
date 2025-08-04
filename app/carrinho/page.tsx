@@ -9,7 +9,7 @@ import { Card } from "@/components/ui/card"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
 import { formatCurrency } from "@/lib/utils"
-import { Trash2, ShoppingBag, CreditCard, QrCode, Banknote } from "lucide-react"
+import { Trash2, ShoppingCart, CreditCard, QrCode, Banknote } from "lucide-react"
 import { createWhatsAppLink } from "@/lib/whatsapp"
 
 export default function CartPage() {
@@ -49,7 +49,7 @@ export default function CartPage() {
 
       {isEmpty ? (
         <div className="text-center py-16">
-          <ShoppingBag className="mx-auto h-16 w-16 text-muted-foreground mb-4" />
+          <ShoppingCart className="mx-auto h-16 w-16 text-muted-foreground mb-4" />
           <h2 className="text-2xl font-medium mb-2">Seu carrinho está vazio</h2>
           <p className="text-muted-foreground mb-8">Parece que você ainda não adicionou nenhum item ao seu carrinho.</p>
           <Link href="/">
