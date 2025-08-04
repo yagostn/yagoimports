@@ -96,7 +96,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               <Button
                 variant="outline"
                 size="icon"
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white shadow-md"
                 onClick={prevImage}
               >
                 <ChevronLeft className="h-4 w-4" />
@@ -105,7 +105,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               <Button
                 variant="outline"
                 size="icon"
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white shadow-md"
                 onClick={nextImage}
               >
                 <ChevronRight className="h-4 w-4" />
