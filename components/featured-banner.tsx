@@ -14,7 +14,7 @@ interface BannerItem {
 const bannerItems: BannerItem[] = [
   {
     id: 1,
-    image: "/images/acostamentoazul.jpg",
+    image: "/images/txcpreta.jpg",
     title: "Camisas de qualidade",
     subtitle: "Estilo e liberdade para o seu dia a dia.",
   },
@@ -26,13 +26,13 @@ const bannerItems: BannerItem[] = [
   },
   { 
     id: 3,
-    image: "/images/conjunto3.jpg",
+    image: "/images/eutxc.jpg",
     title: "Sua vibe, seu look",
     subtitle: "Conforto que acompanha seu ritmo",
   },
   { 
     id: 4,
-    image: "/images/conjunto4.jpg",
+    image: "/images/euacostamentooff.jpg",
     title: "A elegância começa pelo básico.",
     subtitle: "Marcas que falam por você.",
   },

@@ -6,6 +6,7 @@ import { products } from "@/lib/products"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 export default function Home() {
   const inStockProducts = products.filter((product) => product.stock > 0)
@@ -38,32 +39,54 @@ export default function Home() {
       <FeaturedBanner />
 
       <div className="container mx-auto px-2 py-8">
-        <h1 className="text-3xl font-bold text-center mb-4">
-          Sejam bem-vindos a loja com o melhor preço e qualidade!
+        <h1 className="text-2xl font-bold text-center mb-4">
+          Sejam Bem-Vindos A Nossa Loja Com O Melhor Preço E Qualidade!
         </h1>
 
-        <div className="flex justify-center gap-4 mb-8">
-          <Button
-            variant="outline"
-            className="bg-white text-[#000000] hover:bg-gray-100"
-            onClick={() => handleCategory()}
-          >
-            Todos
-          </Button>
-          <Button
-            variant="outline"
-            className="bg-white text-[#000000] hover:bg-gray-100"
-            onClick={() => handleCategory("Camisas")}
-          >
-            Camisas
-          </Button>
-          <Button
-            variant="outline"
-            className="bg-white text-[#000000] hover:bg-gray-100"
-            onClick={() => handleCategory("Shorts Sarjas")}
-          >
-            Shorts Sarjas
-          </Button>
+        <div className="mb-8 relative">
+          <div className="relative group">
+            {/* Seta esquerda */}
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <ChevronLeft className="h-4 w-4 text-gray-600" />
+            </div>
+            
+            {/* Container do carrossel */}
+            <div className="flex overflow-x-auto scrollbar-hide gap-2 pb-2 px-8 snap-x snap-mandatory">
+              <Button
+                variant="outline"
+                className="bg-card text-[#000000] whitespace-nowrap flex-shrink-0 snap-start"
+                onClick={() => handleCategory()}
+              >
+                Todos
+              </Button>
+              <Button
+                variant="outline"
+                className="bg-card text-[#000000] whitespace-nowrap flex-shrink-0 snap-start"
+                onClick={() => handleCategory("Camisas")}
+              >
+                Camisas
+              </Button>
+              <Button
+                variant="outline"
+                className="bg-card text-[#000000] whitespace-nowrap flex-shrink-0 snap-start"
+                onClick={() => handleCategory("Shorts Sarjas")}
+              >
+                Shorts Sarjas
+              </Button>
+              <Button
+                variant="outline"
+                className="bg-card text-[#000000] whitespace-nowrap flex-shrink-0 snap-start"
+                onClick={() => handleCategory("Perfumes")}
+              >
+                Perfumes
+              </Button>
+            </div>
+
+            {/* Seta direita */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-1 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <ChevronRight className="h-4 w-4 text-gray-600" />
+            </div>
+          </div>
         </div>
 
         <ProductGrid 

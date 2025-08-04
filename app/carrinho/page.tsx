@@ -13,7 +13,7 @@ import { Trash2, ShoppingBag, CreditCard, QrCode, Banknote } from "lucide-react"
 import { createWhatsAppLink } from "@/lib/whatsapp"
 
 export default function CartPage() {
-  const { cart, removeFromCart, updateQuantity, clearCart } = useCart()
+  const { cart, removeFromCart, updateQuantity, clearCart, getAvailableStock } = useCart()
   const [mounted, setMounted] = useState(false)
   const [paymentMethod, setPaymentMethod] = useState<"pix" | "cartao" | "debito" | "dinheiro" | null>(null)
 
@@ -59,7 +59,11 @@ export default function CartPage() {
       ) : (
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2 space-y-4">
-            {cart.map((item) => (
+            {cart.map((item) => {
+              const availableStock = getAvailableStock(item.id, item.size, item.color);
+              const isAtMaxStock = item.quantity >= availableStock;
+              
+              return (
               <Card key={`${item.id}-${item.size}-${item.color}`} className="p-4 flex gap-4 mx-auto">
                 <div className="relative w-20 h-20 flex-shrink-0">
                   <Image
@@ -87,6 +91,9 @@ export default function CartPage() {
                       </span>
                     )}
                   </div>
+                  <div className="text-xs text-muted-foreground mt-1">
+                    Estoque disponível: {availableStock}
+                  </div>
                   <div className="flex justify-between items-center mt-2">
                     <div className="flex items-center border rounded-md">
                       <Button
@@ -102,8 +109,15 @@ export default function CartPage() {
                       <Button
                         variant="ghost"
                         size="icon"
-                        onClick={() => updateQuantity(item, item.quantity + 1)}
+                        onClick={() => {
+                          const success = updateQuantity(item, item.quantity + 1);
+                          if (!success && item.quantity >= availableStock) {
+                            alert(`Estoque máximo atingido! Disponível: ${availableStock} unidades`);
+                          }
+                        }}
                         className="h-8 w-8 rounded-none"
+                        disabled={isAtMaxStock}
+                        title={isAtMaxStock ? "Estoque máximo atingido" : "Adicionar mais um"}
                       >
                         +
                       </Button>
@@ -119,7 +133,8 @@ export default function CartPage() {
                   </div>
                 </div>
               </Card>
-            ))}
+              );
+            })}
 
             {/* Botões em coluna no mobile, em linha no desktop */}
             <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-3 mt-4">

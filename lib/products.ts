@@ -4,13 +4,13 @@ export const products: Product[] = [
   {
     id: "1",
     name: " Camisa Acostamento",
-    description: "- Camisa Acostamento com Otíma qualidade e conforto",
+    description: "Camisa Acostamento com Otíma qualidade e conforto",
     price: 49.99,
-    images: ["/images/acostamentoazul.jpg","/images/acostamentobranca.jpg"],
+    images: ["/images/acostamentoazul.jpg", "/images/acostamentobranca.jpg"],
     category: "Camisas",
     sizes: ["M", "G"],
-    colors: ["#000080","#FFFFFF"],
-    isNew:  true,
+    colors: ["#000080", "#FFFFFF"],
+    isNew: true,
     stock: 1,
     variants: [
       {
@@ -33,10 +33,10 @@ export const products: Product[] = [
     images: ["/images/shortsajapolo1.jpg"],
     category: "Shorts Sarjas",
     sizes: ["M",],
-    colors: ["#084808","#000080"],
-    isNew:  true,
+    colors: ["#084808", "#000080"],
+    isNew: true,
     stock: 1,
-   variants: [
+    variants: [
       {
         color: "#084808",
         image: "/images/shortsajapolo1.jpg",
@@ -58,16 +58,16 @@ export const products: Product[] = [
     category: "Shorts Sarjas",
     sizes: ["M",],
     colors: ["#000000",],
-    isNew:  true,
+    isNew: true,
     stock: 1,
-   variants: [
+    variants: [
       {
         color: "#000000",
         image: "/images/shortsajatommy.jpg",
         sizes: [{ size: "M", stock: 1 }],
       },
     ],
-      },
+  },
   {
     id: "4",
     name: "Short Sarja Boss",
@@ -77,33 +77,367 @@ export const products: Product[] = [
     category: "Shorts Sarjas",
     sizes: ["M",],
     colors: ["#F5F5DC",],
-    isNew:  true,
+    isNew: true,
     stock: 1,
-   variants: [
-      {   
+    variants: [
+      {
         color: "#F5F5DC",
         image: "/images/shortsajaboss.jpg",
         sizes: [{ size: "M", stock: 1 }],
       },
     ],
-    
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-  },];  
+  },
+  {
+    id: "5",
+    name: "Camisa Acostamento",
+    description: "Camisa Acostamento com Otíma qualidade e conforto!",
+    price: 59.99,
+    images: ["/images/acostamentooff.jpg", "/images/euacostamentooff.jpg"],
+    category: "Camisas",
+    sizes: ["G",],
+    colors: ["#FAF9F6",],
+    isNew: true,
+    stock: 1,
+    variants: [
+      {
+        color: "#FAF9F6",
+        image: "/images/acostamentooff.jpg",
+        sizes: [{ size: "G", stock: 1 }],
+      },
+    ],
+  },
+  {
+    id: "6",
+    name: "Camisa Acostamento",
+    description: "Camisa Acostamento com Otíma qualidade e conforto!",
+    price: 79.99,
+    images: ["/images/acostamentoG.jpg", "/images/euacostamentoG.jpg"],
+    category: "Camisas",
+    sizes: ["G",],
+    colors: ["#000080",],
+    isNew: true,
+    stock: 1,
+    variants: [
+      {
+        color: "#000080",
+        image: "/images/acostamentoG.jpg",
+        sizes: [{ size: "G", stock: 1 }],
+      },
+    ],
+  },  {
+    id: "7",
+    name: "Camisa Colcci",
+    description: "Camisa Colcci com Otíma qualidade e conforto!",
+    price: 59.99,
+    images: ["/images/colcciazul.jpg", "/images/eucolcciazul.jpg"],
+    category: "Camisas",
+    sizes: ["G",],
+    colors: ["#000080",],
+    isNew: true,
+    stock: 1,
+    variants: [
+      {
+        color: "#000080",
+        image: "/images/colcciazul.jpg",
+        sizes: [{ size: "G", stock: 1 }],
+      },
+    ],
+  },
+  {
+    id: "8",
+    name: "Camisa Colcci",
+    description: "Camisa Colcci com Otíma qualidade e conforto!",
+    price: 69.99,
+    images: ["/images/colccipreto.jpg", "/images/eucolccipreta.jpg"],
+    category: "Camisas",
+    sizes: ["G",],
+    colors: ["#000000",],
+    isNew: true,
+    stock: 1,
+    variants: [
+      {
+        color: "#000000",
+        image: "/images/colccipreto.jpg",
+        sizes: [{ size: "G", stock: 1 }],
+      },
+    ],
+  },
+  {
+    id: "9",
+    name: "Camisa Colcci",
+    description: "Camisa Colcci com Otíma qualidade e conforto!",
+    price: 69.99,
+    images: ["/images/colccibranca.jpg", "/images/eucolccibranca.jpg"],
+    category: "Camisas",
+    sizes: ["M",],
+    colors: ["#ffffffff",],
+    isNew: true,
+    stock: 1,
+    variants: [
+      {
+        color: "#ffffffff",
+        image: "/images/colccibranca.jpg",
+        sizes: [{ size: "M", stock: 1 }],
+      },
+    ],
+    },
+  {
+    id: "10",
+    name: "Camisa Tommy Hilfiger ",
+    description: "Camisa Tommy Hilfiger com Otíma qualidade e conforto!",
+    price: 69.99,
+    images: ["/images/tommy.jpg", "/images/eutommy.jpg"],
+    category: "Camisas",
+    sizes: ["M",],
+    colors: ["#000000",],
+    isNew: true,
+    stock: 1,
+    variants: [
+      {
+        color: "#000000",
+        image: "/images/tommy.jpg",
+        sizes: [{ size: "M", stock: 1 }],
+      },
+    ],
+    },
+  {
+    id: "11",
+    name: "Camisa TXC ",
+    description: "Camisa TXC com Otíma qualidade e conforto!",
+    price: 69.99,
+    images: ["/images/txcbranca.jpg", "/images/eutxcbranca.jpg"],
+    category: "Camisas",
+    sizes: ["M",],
+    colors: ["#ffffffff",],
+    isNew: true,
+    stock: 1,
+    variants: [
+      {
+        color: "#ffffffff",
+        image: "/images/txcbranca.jpg",
+        sizes: [{ size: "M", stock: 1 }],
+      },
+    ],
+    },
+  {
+    id: "12",
+    name: "Camisa TXC ",
+    description: "Camisa TXC com Otíma qualidade e conforto!",
+    price: 69.99,
+    images: ["/images/txcpreta.jpg", "/images/eutxcpreta.jpg"],
+    category: "Camisas",
+    sizes: ["M",],
+    colors: ["#000000",],
+    isNew: true,
+    stock: 1,
+    variants: [
+      {
+        color: "#000000",
+        image: "/images/txcpreta.jpg",
+        sizes: [{ size: "M", stock: 1 }],
+      },
+    ],
+  },
+  {
+    id: "13",
+    name: "Camisa TXC",
+    description: "Camisa TXC com Otíma qualidade e conforto!",
+    price: 69.99,
+    images: ["/images/txcpreta1.jpg", "/images/eutxc.jpg"],
+    category: "Camisas",
+    sizes: ["M",],
+    colors: ["#000000",],
+    isNew: true,
+    stock: 1,
+    variants: [
+      {
+        color: "#000000",
+        image: "/images/txcpreta1.jpg",
+        sizes: [{ size: "M", stock: 1 }],
+      },
+    ],
+  },
+  {
+    id: "14",
+    name: "Camisa Colcci",
+    description: "Camisa Colcci com Otíma qualidade e conforto!",
+    price: 69.99,
+    images: ["/images/colccioff.jpg", "/images/eucolccioff.jpg"],
+    category: "Camisas",
+    sizes: ["M",],
+    colors: ["#FAF9F6",],
+    isNew: true,
+    stock: 1,
+    variants: [
+      {
+        color: "#FAF9F6",
+        image: "/images/colccioff.jpg",
+        sizes: [{ size: "M", stock: 1 }],
+      },
+    ],
+  },
+  {
+    id: "15",
+    name: "Perfume Asad",
+    description: "Perfume Árabe Asad com Otíma qualidade e fixação!",
+    price: 260.00,
+    images: ["/images/asad.jpg"],
+    category: "Perfumes",
+    sizes: ["100ml",],
+    colors: ["#000000",],
+    isNew: true,
+    stock: 2,
+    variants: [
+      {
+        color: "#000000",
+        image: "/images/asad.jpg",
+        sizes: [{ size: "100ml", stock: 2 }],
+      },
+    ],
+  }, 
+  {
+    id: "16",
+    name: "Perfume Asad Bourbon",
+    description: "Perfume Árabe Asad Bourbon com Otíma qualidade e fixação!",
+    price: 340.00,
+    images: ["/images/asadmarrom.jpg"],
+    category: "Perfumes",
+    sizes: ["100ml",],
+    colors: ["#000000",],
+    isNew: true,
+    stock: 2,
+    variants: [
+      {
+        color: "#000000",
+        image: "/images/asadmarrom.jpg",
+        sizes: [{ size: "100ml", stock: 2 }],
+      },
+    ],
+  }, 
+  {
+    id: "17",
+    name: "Perfume Attaral Wesal",
+    description: "Perfume Árabe Attaral Wesal com Otíma qualidade e fixação!",
+    price: 220.00,
+    images: ["/images/attaral.jpg"],
+    category: "Perfumes",
+    sizes: ["100ml",],
+    colors: ["#000000",],
+    isNew: true,
+    stock: 2,
+    variants: [
+      {
+        color: "#000000",
+        image: "/images/attaral.jpg",
+        sizes: [{ size: "100ml", stock: 2 }],
+      },
+    ],
+  }, 
+  {
+    id: "18",
+    name: "Perfume Club De Nuit",
+    description: "Perfume Árabe Club De Nuit com Otíma qualidade e fixação!",
+    price: 310.00,
+    images: ["/images/club.jpg"],
+    category: "Perfumes",
+    sizes: ["100ml",],
+    colors: ["#000000",],
+    isNew: true,
+    stock: 2,
+    variants: [
+      {
+        color: "#000000",
+        image: "/images/club.jpg",
+        sizes: [{ size: "100ml", stock: 2 }],
+      },
+    ],
+  }, 
+  {
+    id: "19",
+    name: "Perfume Ameerati",
+    description: "Perfume Árabe Ameerati com Otíma qualidade e fixação!",
+    price: 220.00,
+    images: ["/images/ameerati.jpg"],
+    category: "Perfumes",
+    sizes: ["100ml",],
+    colors: ["#000000",],
+    isNew: true,
+    stock: 2,
+    variants: [
+      {
+        color: "#000000",
+        image: "/images/ameerati.jpg",
+        sizes: [{ size: "100ml", stock: 2 }],
+      },
+    ],
+  }, 
+  {
+    id: "20",
+    name: "Perfume His Confession",
+    description: "Perfume Árabe His Confession com Otíma qualidade e fixação!",
+    price: 330.00,
+    images: ["/images/hisconfession.jpg"],
+    category: "Perfumes",
+    sizes: ["100ml",],
+    colors: ["#000000",],
+    isNew: true,
+    stock: 2,
+    variants: [
+      {
+        color: "#000000",
+        image: "/images/hisconfession.jpg",
+        sizes: [{ size: "100ml", stock: 2 }],
+      },
+    ],
+  }, 
+  {
+    id: "21",
+    name: "Perfume All Noble Safeer",
+    description: "Perfume Árabe All Noble Safeer com Otíma qualidade e fixação!",
+    price: 330.00,
+    images: ["/images/safeer.jpg"],
+    category: "Perfumes",
+    sizes: ["100ml",],
+    colors: ["#000000",],
+    isNew: true,
+    stock: 0,
+    variants: [
+      {
+        color: "#000000",
+        image: "/images/safeer.jpg",
+        sizes: [{ size: "100ml", stock: 0 }],
+      },
+    ],
+  }, 
+  {
+    id: "22",
+    name: "Perfume Ghost",
+    description: "Perfume Árabe Ghost com Otíma qualidade e fixação!",
+    price: 420.00,
+    images: ["/images/ghost.webp"],
+    category: "Perfumes",
+    sizes: ["100ml",],
+    colors: ["#000000",],
+    isNew: true,
+    stock: 2,
+    variants: [
+      {
+        color: "#000000",
+        image: "/images/ghost.webp",
+        sizes: [{ size: "100ml", stock: 2 }],
+      },
+    ],
+  }, 
   
+  
+  
+  
+
+
+
+
+
+
+
+
+];

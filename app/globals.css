@@ -1,6 +1,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Estilo para esconder scrollbar no carrossel */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -46,11 +55,11 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #e3e3e3;
+  --background: oklch(0.9382 0.104 96.09);
   --foreground: oklch(0% 0 100.06);
-  --card: oklch(1 0 0);
+  --card: oklch(0.98 0.02 96);
   --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
+  --popover: oklch(96.097% 0.01557 42.085);
   --popover-foreground: oklch(100% 0 0);
   --card-foreground: #000000;
   --category-foreground: #000000;

@@ -13,22 +13,49 @@ import { Badge } from "@/components/ui/badge";
 
 interface ProductDetailsProps {
   product: Product;
-  setSelectedImage: (image: string) => void;
+  selectedColor?: string | null;
+  onColorChange?: (color: string | null) => void;
 }
 
 export default function ProductDetails({
   product,
-  setSelectedImage,
+  selectedColor: externalSelectedColor,
+  onColorChange,
 }: ProductDetailsProps) {
   const router = useRouter();
   const { addToCart } = useCart();
 
   const [selectedColor, setSelectedColor] = useState<string | null>(
-    product.variants.length > 0 ? product.variants[0].color : null
+    externalSelectedColor ?? (product.variants.length > 0 ? product.variants[0].color : null)
   );
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [selectedSize, setSelectedSize] = useState<string | null>(() => {
+    // Selecionar tamanho inicial automaticamente
+    const initialVariant = product.variants.find(v => v.color === (externalSelectedColor ?? product.variants[0]?.color));
+    if (initialVariant) {
+      const availableSizes = initialVariant.sizes.filter(s => s.stock > 0);
+      return availableSizes.length > 0 ? availableSizes[0].size : null;
+    }
+    return null;
+  });
   const [quantity, setQuantity] = useState(1);
   const [addedToCart, setAddedToCart] = useState(false);
+
+  // Sincronizar cor selecionada com prop externa apenas uma vez
+  useEffect(() => {
+    if (externalSelectedColor !== undefined && externalSelectedColor !== selectedColor) {
+      setSelectedColor(externalSelectedColor);
+    }
+  }, [externalSelectedColor]); // Removido selectedColor da dependência
+
+  // Função para mudar cor
+  const handleColorChange = (color: string) => {
+    if (color !== selectedColor) {
+      setSelectedColor(color);
+      if (onColorChange) {
+        onColorChange(color);
+      }
+    }
+  };
 
   const selectedVariant = useMemo(
     () => product.variants.find((v) => v.color === selectedColor),
@@ -42,18 +69,31 @@ export default function ProductDetails({
 
   useEffect(() => {
     if (selectedVariant) {
-      setSelectedImage(selectedVariant.image);
-      const newSizes = selectedVariant.sizes.map((s) => s.size);
-      if (selectedSize && !newSizes.includes(selectedSize)) {
-        setSelectedSize(null);
-      }
-      if (newSizes.length === 1) {
-        setSelectedSize(newSizes[0]);
-      } else if (selectedSize === null) {
-        setSelectedSize(null);
+      const availableSizes = selectedVariant.sizes.filter((s) => s.stock > 0);
+      
+      if (availableSizes.length > 0) {
+        // Se há apenas um tamanho disponível, seleciona automaticamente
+        if (availableSizes.length === 1) {
+          if (selectedSize !== availableSizes[0].size) {
+            setSelectedSize(availableSizes[0].size);
+          }
+        } 
+        // Se o tamanho atual não está disponível na nova variante
+        else if (selectedSize && !availableSizes.some(s => s.size === selectedSize)) {
+          setSelectedSize(availableSizes[0].size);
+        }
+        // Se não há tamanho selecionado, seleciona o primeiro disponível
+        else if (!selectedSize) {
+          setSelectedSize(availableSizes[0].size);
+        }
+      } else {
+        // Se não há tamanhos disponíveis, limpa a seleção
+        if (selectedSize !== null) {
+          setSelectedSize(null);
+        }
       }
     }
-  }, [selectedVariant, setSelectedImage, selectedSize]);
+  }, [selectedColor]); // Só executa quando a cor muda
 
   const totalStock = useMemo(
     () =>
@@ -82,7 +122,7 @@ export default function ProductDetails({
     )
       return;
 
-    addToCart({
+    const success = addToCart({
       id: product.id,
       name: product.name,
       price: product.price,
@@ -92,8 +132,12 @@ export default function ProductDetails({
       color: selectedColor,
     });
 
-    setAddedToCart(true);
-    setTimeout(() => setAddedToCart(false), 2000);
+    if (success) {
+      setAddedToCart(true);
+      setTimeout(() => setAddedToCart(false), 2000);
+    } else {
+      alert(`Estoque insuficiente! Disponível: ${stockForSelectedSize} unidades`);
+    }
   };
 
   const handleBuyNow = () => {
@@ -154,12 +198,12 @@ export default function ProductDetails({
           </div>
         )}
 
-        {product.variants.length > 0 && (
+        {product.variants.length > 0 && product.category !== "Perfumes" && (
           <div>
             <h3 className="font-medium mb-2">Cor</h3>
             <RadioGroup
-              value={selectedColor || ""}
-              onValueChange={setSelectedColor}
+              value={selectedColor ?? ""}
+              onValueChange={handleColorChange}
               className="flex flex-wrap gap-3"
               disabled={isOutOfStock}
             >
@@ -191,7 +235,9 @@ export default function ProductDetails({
 
         {availableSizes.length > 0 && (
           <div>
-            <h3 className="font-medium mb-2">Tamanho</h3>
+            <h3 className="font-medium mb-2">
+              {product.category === "Perfumes" ? "Volume" : "Tamanho"}
+            </h3>
             <RadioGroup
               value={selectedSize || ""}
               onValueChange={setSelectedSize}
@@ -207,9 +253,9 @@ export default function ProductDetails({
                   />
                   <Label
                     htmlFor={`size-${size}`}
-                    className={`flex h-10 w-10 items-center justify-center rounded-md border border-gray-300 bg-white 
+                    className={`flex ${product.category === "Perfumes" ? "h-12 w-16" : "h-10 w-10"} items-center justify-center rounded-md border border-gray-300 bg-white 
                     peer-data-[state=checked]:bg-black peer-data-[state=checked]:text-white 
-                    hover:bg-gray-100 cursor-pointer ${
+                    cursor-pointer ${
                       isOutOfStock ? "opacity-50 cursor-not-allowed" : ""
                     }`}
                   >
