@@ -74,7 +74,14 @@ export default function ProductGrid({
                 </p>
               </CardContent>
               <CardFooter className="p-3 pt-0 flex flex-col items-start">
-                <div className="font-bold">{formatCurrency(product.price)}</div>
+                <div className="flex items-center gap-2">
+                  <div className="font-bold">{formatCurrency(product.price)}</div>
+                  {product.originalPrice && product.originalPrice > product.price && (
+                    <div className="text-sm text-muted-foreground line-through">
+                      {formatCurrency(product.originalPrice)}
+                    </div>
+                  )}
+                </div>
                 <div className="text-sm text-muted-foreground">
                   {calculateInstallments(product.price)}
                 </div>

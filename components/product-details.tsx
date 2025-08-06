@@ -151,9 +151,19 @@ export default function ProductDetails({
       <div className="flex justify-between items-start">
         <div>
           <h1 className="text-1.5xl font-bold">{product.name}</h1>
-          <p className="text-xl font-bold mt-2">
-            {formatCurrency(product.price)}
-          </p>
+          <div className="flex items-center gap-2 mt-2">
+            <p className="text-xl font-bold">
+              {formatCurrency(product.price)}
+            </p>
+            {product.originalPrice && product.originalPrice > product.price && (
+              <p className="text-sm text-muted-foreground line-through">
+                {formatCurrency(product.originalPrice)}
+              </p>
+            )}
+            {product.originalPrice && product.originalPrice > product.price && (
+              <Badge variant="destructive" className="text-sm px-2 py-0.5">10% OFF</Badge>
+            )}
+          </div>
           <p className="text-sm text-muted-foreground">
             {calculateInstallments(product.price)}
           </p>
