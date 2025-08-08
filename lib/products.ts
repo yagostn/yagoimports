@@ -102,12 +102,12 @@ export const products: Product[] = [
     sizes: ["G",],
     colors: ["#FAF9F6",],
     isNew: true,
-    stock: 1,
+    stock: 0,
     variants: [
       {
         color: "#FAF9F6",
         image: "/images/acostamentooff.jpg",
-        sizes: [{ size: "G", stock: 1 }],
+        sizes: [{ size: "G", stock: 0 }],
       },
     ],
   },
