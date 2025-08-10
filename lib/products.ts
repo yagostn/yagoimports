@@ -62,12 +62,12 @@ export const products: Product[] = [
     sizes: ["M",],
     colors: ["#000000",],
     isNew: true,
-    stock: 1,
+    stock: 0,
     variants: [
       {
         color: "#000000",
         image: "/images/shortsajatommy.jpg",
-        sizes: [{ size: "M", stock: 1 }],
+        sizes: [{ size: "M", stock: 0 }],
       },
     ],
   },
@@ -261,12 +261,12 @@ export const products: Product[] = [
     sizes: ["M",],
     colors: ["#000000",],
     isNew: true,
-    stock: 1,
+    stock: 0,
     variants: [
       {
         color: "#000000",
         image: "/images/txcpreta1.jpg",
-        sizes: [{ size: "M", stock: 1 }],
+        sizes: [{ size: "M", stock:  0}],
       },
     ],
   },
