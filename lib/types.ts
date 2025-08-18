@@ -33,3 +33,12 @@ export interface CartItem {
   size: string | null;
   color: string | null;
 }
+
+export interface DeliveryInfo {
+  rua: string;
+  numero: string;
+  bairro: string;
+  cidade: string;
+}
+
+export type DeliveryType = "entrega" | "retirada" | null;

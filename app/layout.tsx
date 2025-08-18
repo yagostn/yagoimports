@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Montserrat } from "next/font/google";
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
 import { CartProvider } from "@/lib/use-cart";
 import SiteHeader from "@/components/site-header";
 
@@ -25,7 +24,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={montserrat.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
         <CartProvider>
             <div className="relative flex min-h-screen flex-col"> 
               <SiteHeader />
@@ -39,7 +37,6 @@ export default function RootLayout({
               </footer>
             </div>
           </CartProvider>
-        </ThemeProvider>
       </body>
     </html>
   )

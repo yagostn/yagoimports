@@ -1,4 +1,4 @@
-import type { CartItem } from "./types"
+import type { CartItem, DeliveryInfo, DeliveryType } from "./types"
 import { formatCurrency } from "./utils"
 
 // Substitua pelo seu número de WhatsApp (com código do país)
@@ -41,7 +41,9 @@ export function createWhatsAppLink(
   cart: CartItem[], 
   paymentMethod?: "pix" | "cartao" | "dinheiro" | "debito" | null,
   customerName?: string,
-  customerPhone?: string
+  customerPhone?: string,
+  deliveryType?: DeliveryType,
+  deliveryInfo?: DeliveryInfo
 ): string {
   if (cart.length === 0) return ""
 
@@ -58,56 +60,83 @@ export function createWhatsAppLink(
   })
 
   // Create WhatsApp message
-  let message = `*Yago Imports - Confirmação de Pedido*\n\n`
+  let message = ` *YAGO IMPORTS* \n`
+  message += ` *CONFIRMAÇÃO DE PEDIDO*\n\n`
 
-  // Customer Information
-  if (customerName) message += `*Nome do Cliente:* ${customerName}\n`
-  if (customerPhone) message += `*Telefone:* ${customerPhone}\n\n`
 
   // Order Details
-  message += `*Data do Pedido:* ${formattedDate}\n\n`
+  message += ` *Data do Pedido:* ${formattedDate}\n\n`
 
   // Cart Items
-  message += `*Itens do Pedido:*\n`
+  message += ` *ITENS DO PEDIDO:*\n`
+  message += `━━━━━━━━━━\n`
   cart.forEach((item, index) => {
-    message += `*${index + 1}. ${item.name}*\n`
-    message += `   Quantidade: ${item.quantity}\n`
-    if (item.size) message += `   Tamanho: ${item.size}\n`
-    if (item.color) message += `   Cor: ${getColorName(item.color)}\n`
-    message += `   Valor: ${formatCurrency(item.price)}\n\n`
-
+    message += `${index + 1}️⃣ *${item.name}*\n`
+    message += `    Quantidade: ${item.quantity}\n`
+    if (item.size) message += `    Tamanho: ${item.size}\n`
+    if (item.color) message += `    Cor: ${getColorName(item.color)}\n`
+    message += `    Valor: ${formatCurrency(item.price)}\n`
+    message += `   ────────────────\n`
   })
 
   // Order Summary
-  message += '  •*RESUMO DO PEDIDO:*\n'
-  message += `   Quantidade Total de Peças: ${totalQuantity}\n`
-  message += `   *Valor Total: ${formatCurrency(subtotal)}*\n\n`
+  message += `\n *RESUMO DO PEDIDO:*\n`
+  message += ` Total de Peças: *${totalQuantity}*\n`
+  message += ` *VALOR TOTAL: ${formatCurrency(subtotal)}*\n\n`
 
   // Payment Method
   if (paymentMethod) {
     let paymentMethodText = ""
+    let paymentIcon = ""
 
     switch (paymentMethod) {
       case "pix":
         paymentMethodText = "PIX"
+        paymentIcon = ""
         break
       case "cartao":
         paymentMethodText = "Cartão de Crédito"
+        paymentIcon = ""
         break
       case "debito":
         paymentMethodText = "Cartão de Débito"
+        paymentIcon = ""
         break
       case "dinheiro":
         paymentMethodText = "Dinheiro"
+        paymentIcon = ""
         break
     }
 
-    message += `*Método de Pagamento:* ${paymentMethodText}\n\n`
+    message += `${paymentIcon} *MÉTODO DE PAGAMENTO:* ${paymentMethodText}\n\n`
   }
 
-  // Closing message
-  message += `*Obrigado pela prefrência!* \n`
-  message += `*Yago Imports!*\n`
+  // Delivery Information
+  if (deliveryType) {
+    message += `*FORMA DE RECEBIMENTO:*\n`
+    
+    if (deliveryType === "entrega") {
+      message += ` *ENTREGA*\n\n`
+      if (deliveryInfo && deliveryInfo.rua && deliveryInfo.numero && deliveryInfo.bairro && deliveryInfo.cidade) {
+        message += `* Endereço de Entrega:*\n`
+        message += `    ${deliveryInfo.rua}, ${deliveryInfo.numero}\n`
+        message += `    Bairro: ${deliveryInfo.bairro}\n`
+        message += `    Cidade: ${deliveryInfo.cidade}\n\n`
+        message += ` *Prazo de Entrega:* Entraremos em contato para agendar\n`
+        message += ` *Frete:* A combinar\n\n`
+      }
+    } else if (deliveryType === "retirada") {
+      message += ` *RETIRADA*\n\n`
+      message += `Rua 88, 03 Albano Franco,\n`
+      message += `Nossa Sra do Socorro-SE\n`
+      message += `49153-094 (Marcos Freire 2)\n\n`
+
+    }
+  }
+
+  
+  message += ` *Obrigado pela preferência!*\n`
+  message += ` *YAGO IMPORTS!* `
 
   // Encode message for URL
   const encodedMessage = encodeURIComponent(message)
