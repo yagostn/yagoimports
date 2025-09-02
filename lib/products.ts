@@ -33,7 +33,7 @@ export const products: Product[] = [
     images: ["/images/shortsajapolo1.jpg"],
     category: "Shorts Sarjas",
     sizes: ["M",],
-    colors: ["#084808", "#000080"],
+    colors: ["#084808"],
     isNew: true,
     stock: 1,
     variants: [
@@ -42,11 +42,7 @@ export const products: Product[] = [
         image: "/images/shortsajapolo1.jpg",
         sizes: [{ size: "M", stock: 1 }],
       },
-      {
-        color: "#000080",
-        image: "/images/shortsajapolo.jpg",
-        sizes: [{ size: "M", stock: 1 }],
-      },
+
     ],
   },
   {
@@ -210,12 +206,12 @@ export const products: Product[] = [
     sizes: ["M",],
     colors: ["#FFFFFFFF",],
     isNew: true,
-    stock: 1,
+    stock: 0,
     variants: [
       {
         color: "#FFFFFFFF",
         image: "/images/txcbranca.jpg",
-        sizes: [{ size: "M", stock: 1 }],
+        sizes: [{ size: "M", stock: 0 }],
       },
     ],
     },
