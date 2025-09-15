@@ -112,12 +112,12 @@ export const products: Product[] = [
     sizes: ["G",],
     colors: ["#000080",],
     isNew: true,
-    stock: 1,
+    stock: 0,
     variants: [
       {
         color: "#000080",
         image: "/images/acostamentoG.jpg",
-        sizes: [{ size: "G", stock: 1 }],
+        sizes: [{ size: "G", stock: 0 }],
       },
     ],
   },  {
@@ -168,12 +168,12 @@ export const products: Product[] = [
     sizes: ["M",],
     colors: ["#FFFFFFFF",],
     isNew: true,
-    stock: 1,
+    stock: 0,
     variants: [
       {
         color: "#FFFFFFFF",
         image: "/images/colccibranca.jpg",
-        sizes: [{ size: "M", stock: 1 }],
+        sizes: [{ size: "M", stock: 0 }],
       },
     ],
     },
@@ -225,7 +225,7 @@ export const products: Product[] = [
     sizes: ["M",],
     colors: ["#000000",],
     isNew: true,
-    stock: 1,
+    stock: 0,
     variants: [
       {
         color: "#000000",
