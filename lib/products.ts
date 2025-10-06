@@ -40,7 +40,7 @@ export const products: Product[] = [
       {
         color: "#084808",
         image: "/images/shortsajapolo1.jpg",
-        sizes: [{ size: "M", stock: 1 }],
+        sizes: [{ size: "M", stock: 0 }],
       },
 
     ],
@@ -149,12 +149,12 @@ export const products: Product[] = [
     sizes: ["G",],
     colors: ["#000000",],
     isNew: true,
-    stock: 1,
+    stock: 0,
     variants: [
       {
         color: "#000000",
         image: "/images/colccipreto.jpg",
-        sizes: [{ size: "G", stock: 1 }],
+        sizes: [{ size: "G", stock: 0 }],
       },
     ],
   },
