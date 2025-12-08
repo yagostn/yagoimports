@@ -2,18 +2,58 @@
 
 import ProductGrid from "@/components/product-grid"
 import FeaturedBanner from "@/components/featured-banner"
-import { products } from "@/lib/products"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { db } from "@/lib/firebase/config"
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { Product } from "@/lib/types"
 
 export default function Home() {
-  const inStockProducts = products.filter((product) => product.stock > 0)
-  const outOfStockCount = products.length - inStockProducts.length
-
-  // Estado para armazenar o filtro de categoria
+  const [products, setProducts] = useState<Product[]>([])
+  const [categories, setCategories] = useState<string[]>([])
+  const [loading, setLoading] = useState(true)
   const [categoryFilter, setCategoryFilter] = useState<string | null>(null)
+
+  useEffect(() => {
+    loadProducts()
+    loadCategories()
+  }, [])
+
+  const loadProducts = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, 'produtos'))
+      const productsData = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      })) as Product[]
+      
+      console.log('Produtos carregados:', productsData.length)
+      
+      // Filtrar apenas produtos com estoque
+      const inStockProducts = productsData.filter(p => p.stock > 0)
+      console.log('Produtos em estoque:', inStockProducts)
+      setProducts(inStockProducts)
+    } catch (error) {
+      console.error('Erro ao carregar produtos:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const loadCategories = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, 'categorias'))
+      const categoriesData = querySnapshot.docs.map(doc => doc.data().nome as string)
+      setCategories(categoriesData)
+    } catch (error) {
+      console.error('Erro ao carregar categorias:', error)
+    }
+  }
+
+  const inStockProducts = products
+  const outOfStockCount = 0
 
   // Atualiza o filtro de categoria apenas no cliente
   useEffect(() => {
@@ -59,27 +99,16 @@ export default function Home() {
               >
                 Todos
               </Button>
-              <Button
-                variant="outline"
-                className="bg-card text-[#000000] whitespace-nowrap flex-shrink-0 snap-start"
-                onClick={() => handleCategory("Camisas")}
-              >
-                Camisas
-              </Button>
-              <Button
-                variant="outline"
-                className="bg-card text-[#000000] whitespace-nowrap flex-shrink-0 snap-start"
-                onClick={() => handleCategory("Shorts Sarjas")}
-              >
-                Shorts Sarjas
-              </Button>
-              <Button
-                variant="outline"
-                className="bg-card text-[#000000] whitespace-nowrap flex-shrink-0 snap-start"
-                onClick={() => handleCategory("Perfumes")}
-              >
-                Perfumes
-              </Button>
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant="outline"
+                  className="bg-card text-[#000000] whitespace-nowrap flex-shrink-0 snap-start"
+                  onClick={() => handleCategory(category)}
+                >
+                  {category}
+                </Button>
+              ))}
             </div>
 
             {/* Seta direita */}
@@ -89,25 +118,25 @@ export default function Home() {
           </div>
         </div>
 
-        <ProductGrid 
-          products={inStockProducts.filter(product => {
-            if (!categoryFilter) return true
-            return product.category.toLowerCase() === categoryFilter.toLowerCase()
-          })} 
-          showOutOfStock={false} 
-        />
-
-        {outOfStockCount > 0 && (
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground mb-4">
-              Temos {outOfStockCount} {outOfStockCount === 1 ? "produto esgotado" : "produtos esgotados"} no momento.
-            </p>
-            <Link href="/esgotados">
-              <Button variant="ghost" className="bg-white text-black">
-                Ver Produtos Esgotados
-              </Button>
-            </Link>
+        {loading ? (
+          <div className="text-center py-12">
+            <div className="w-16 h-16 border-4 border-t-transparent rounded-full animate-spin mx-auto"
+                 style={{ borderColor: 'oklch(0.208 0.042 265.755)', borderTopColor: 'transparent' }} />
           </div>
+        ) : products.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-lg" style={{ color: 'oklch(0.5 0.05 265.755)' }}>
+              Nenhum produto disponível no momento.
+            </p>
+          </div>
+        ) : (
+          <ProductGrid 
+            products={inStockProducts.filter(product => {
+              if (!categoryFilter) return true
+              return product.category.toLowerCase() === categoryFilter.toLowerCase()
+            })} 
+            showOutOfStock={false} 
+          />
         )}
       </div>
     </>

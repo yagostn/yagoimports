@@ -18,11 +18,16 @@ export default function ProductGrid({
 
   const filteredProducts = showOutOfStock
     ? products
-    : products.filter((product) =>
-        product.variants.some((variant) =>
-          variant.sizes.some((size) => size.stock > 0)
-        )
-      );
+    : products.filter((product) => {
+        // Verificar se tem variants com estoque
+        if (product.variants && product.variants.length > 0) {
+          return product.variants.some((variant) =>
+            variant.sizes.some((size) => size.stock > 0)
+          );
+        }
+        // Se não tem variants, usar o estoque direto do produto
+        return product.stock > 0;
+      });
 
   if (!filteredProducts.length)
     return (
@@ -36,9 +41,12 @@ export default function ProductGrid({
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {filteredProducts.map((product) => {
-        const isInStock = product.variants.some((variant) =>
-          variant.sizes.some((size) => size.stock > 0)
-        );
+        // Verificar estoque considerando ambas estruturas
+        const isInStock = product.variants && product.variants.length > 0
+          ? product.variants.some((variant) =>
+              variant.sizes.some((size) => size.stock > 0)
+            )
+          : product.stock > 0;
         return (
           <Link href={`/produto/${product.id}`} key={product.id}>
             <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-lg">

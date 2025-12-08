@@ -28,6 +28,16 @@ const nextConfig = {
         hostname: "cdn.sistemawbuy.com.br",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "**",
+      },
     ],
   },
 }

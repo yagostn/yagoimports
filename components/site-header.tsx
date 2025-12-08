@@ -3,15 +3,24 @@
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { ShoppingCart } from "lucide-react"
+import { ShoppingCart, UserCog, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { AdminNavLinks } from "@/components/admin/admin-nav-links"
 import { useCart } from "@/lib/use-cart"
+import { useAuth } from "@/lib/context/auth-context"
 import { useState, useEffect } from "react"
 
 export default function SiteHeader() {
   const pathname = usePathname()
   const { cart } = useCart()
+  const { user } = useAuth()
   const [cartCount, setCartCount] = useState(0)
+  
+  // Verificar se está em página admin E se o usuário está logado
+  const isAdminPage = pathname?.startsWith('/admin') && pathname !== '/admin/login'
+  const showAdminMenu = isAdminPage && user
+  const isPublicPage = !isAdminPage
 
   // Atualizar o contador do carrinho
   useEffect(() => {
@@ -41,7 +50,24 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="container mx-auto flex h-17 items-center justify-center px-7">
+      <div className="container mx-auto flex h-17 items-center justify-center px-7 relative">
+        {showAdminMenu && (
+          <div className="absolute left-4 flex items-center lg:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="hover:bg-transparent">
+                  <Menu className="w-6 h-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-64 p-0" 
+                           style={{ backgroundColor: 'oklch(0.9382 0.104 96.09)' }}>
+                <div className="flex flex-col h-full">
+                  <AdminNavLinks />
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        )}
         <div className="flex flex-col items-center">
           <div className="flex items-center mt-5">
             <Link href="/" className="flex items-center">
@@ -69,19 +95,22 @@ export default function SiteHeader() {
             ))}
           </nav>
         </div>
-        <div className="absolute right-4 flex items-center gap-4">
-          <Link href="/carrinho">
-            <Button variant="ghost" size="icon" className="relative hover:bg-transparent hover:cursor-pointer">
-              <ShoppingCart className="h-5 w-5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
-                  {cartCount}
-                </span>
-              )}
-              <span className="sr-only">Carrinho</span>
-            </Button>
-          </Link>
-        </div>
+        {isPublicPage && (
+          <div className="absolute right-4 flex items-center gap-4">
+            {/* Carrinho - visível em todas as telas */}
+            <Link href="/carrinho">
+              <Button variant="ghost" size="icon" className="relative hover:bg-transparent hover:cursor-pointer">
+                <ShoppingCart className="h-5 w-5" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
+                    {cartCount}
+                  </span>
+                )}
+                <span className="sr-only">Carrinho</span>
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
     </header>
   )
